@@ -3,100 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King AI & Freelance Suite - Job Matching</title>
+    <title>King AI & Freelance Suite - Enterprise Tools</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#0f172a] text-white min-h-screen flex flex-col justify-between">
     <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto w-full border-b border-slate-800">
-        <div class="text-2xl font-bold tracking-tight text-indigo-400">King AI Suite</div>
+        <div class="text-2xl font-bold tracking-tight text-indigo-400">King AI Workspace</div>
         <div class="space-x-4 text-sm font-medium">
-            <button onclick="switchView('market')" id="navMarket" class="text-indigo-400">Find Work</button>
-            <button onclick="switchView('post')" id="navPost" class="text-gray-400 hover:text-white transition">Post a Job</button>
+            <button onclick="switchTool('sheets')" id="navSheets" class="text-indigo-400">Data & Sheets</button>
+            <button onclick="switchTool('parser')" id="navParser" class="text-gray-400 hover:text-white transition">AI Hub</button>
         </div>
     </nav>
 
     <main class="max-w-4xl mx-auto p-6 w-full my-auto">
-        <!-- Marketplace View -->
-        <div id="marketView" class="space-y-4">
+        <!-- Spreadsheet & Data Management Tool -->
+        <div id="sheetsTool" class="space-y-4">
             <div class="flex justify-between items-center mb-2">
-                <h1 class="text-2xl font-bold">Open Projects & Smart Matches</h1>
-                <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full">AI Verified</span>
+                <h1 class="text-2xl font-bold">Pixel Data & Spreadsheet Engine</h1>
+                <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full">Active Utility</span>
             </div>
             
-            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-semibold text-lg text-white">Full-Stack Web App Development</h3>
-                        <p class="text-xs text-gray-400 mt-1">Looking for an expert developer to build a high-performance utility tool and dashboard.</p>
-                    </div>
-                    <span class="text-emerald-400 font-bold text-sm bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20">$1,500</span>
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-4">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 text-gray-400">
+                                <th class="p-3">Record ID</th>
+                                <th class="p-3">Project Name</th>
+                                <th class="p-3">Client</th>
+                                <th class="p-3">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-gray-300">
+                            <tr>
+                                <td class="p-3 font-mono text-indigo-400">#REC-101</td>
+                                <td class="p-3">Short Link Utility App</td>
+                                <td class="p-3">Global Media Corp</td>
+                                <td class="p-3 text-emerald-400">Verified</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono text-indigo-400">#REC-102</td>
+                                <td class="p-3">AI Video Ad Generator</td>
+                                <td class="p-3">VidorAI Studio</td>
+                                <td class="p-3 text-amber-400">In Progress</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="flex justify-between items-center pt-2 border-t border-slate-800 text-xs text-gray-400">
-                    <span>Category: Software Utility</span>
-                    <button onclick="alert('Proposal submitted successfully via AI Match engine!')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl font-medium transition">Apply Now</button>
+                <div class="flex gap-2">
+                    <input type="text" id="newRecordInput" placeholder="Add new record entry..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500">
+                    <button onclick="alert('Record successfully appended to secure workspace spreadsheet!')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 rounded-xl font-medium text-sm transition">Add Entry</button>
                 </div>
             </div>
         </div>
 
-        <!-- Job Post View -->
-        <div id="postView" class="hidden bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl">
-            <h2 class="text-2xl font-bold mb-4">Post a New Project</h2>
-            <form onsubmit="handlePostJob(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-1">Project Title</label>
-                    <input type="text" id="jobTitle" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="e.g., Build a short link generator web tool">
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-400 mb-1">Budget ($ USD)</label>
-                        <input type="number" id="jobBudget" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-400 mb-1">Category</label>
-                        <select class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500 text-gray-300">
-                            <option>Software Utility</option>
-                            <option>AI Video & Animation</option>
-                            <option>Digital Marketing</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-1">Project Description</label>
-                    <textarea rows="3" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="Describe scope, requirements, and deliverables..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-600/20">Publish Job via AI Match</button>
-            </form>
+        <!-- Utility & AI Services Hub -->
+        <div id="parserTool" class="hidden bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl space-y-4">
+            <h2 class="text-2xl font-bold">AI Services & Document Parser</h2>
+            <p class="text-xs text-gray-400">Translate code, compile text strings, or extract structured data instantly in-browser.</p>
+            <textarea rows="4" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-indigo-500" placeholder="Paste source text, translation payload, or code snippet here..."></textarea>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="alert('Document successfully parsed by secure multilingual module!')" class="bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-600/20">Parse & Translate</button>
+                <button onclick="alert('Code successfully compiled and validated!')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 py-3 rounded-xl font-semibold text-sm transition">Compile Code</button>
+            </div>
         </div>
     </main>
 
     <footer class="text-center p-6 text-xs text-gray-500 border-t border-slate-800">
-        &copy; 2026 King AI & Freelance Suite. All rights reserved.
+        &copy; 2026 King AI & Freelance Suite. Native Workspace Tools Active.
     </footer>
 
     <script>
-        function switchView(view) {
-            const marketV = document.getElementById('marketView');
-            const postV = document.getElementById('postView');
-            const navM = document.getElementById('navMarket');
-            const navP = document.getElementById('navPost');
+        function switchTool(tool) {
+            const sheetsV = document.getElementById('sheetsTool');
+            const parserV = document.getElementById('parserTool');
+            const navS = document.getElementById('navSheets');
+            const navP = document.getElementById('navParser');
 
-            if(view === 'market') {
-                marketV.classList.remove('hidden');
-                postV.classList.add('hidden');
-                navM.className = "text-indigo-400 font-semibold";
+            if(tool === 'sheets') {
+                sheetsV.classList.remove('hidden');
+                parserV.classList.add('hidden');
+                navS.className = "text-indigo-400 font-semibold";
                 navP.className = "text-gray-400 hover:text-white transition";
             } else {
-                marketV.classList.add('hidden');
-                postV.classList.remove('hidden');
+                sheetsV.classList.add('hidden');
+                parserV.classList.remove('hidden');
                 navP.className = "text-indigo-400 font-semibold";
-                navM.className = "text-gray-400 hover:text-white transition";
+                navS.className = "text-gray-400 hover:text-white transition";
             }
-        }
-
-        function handlePostJob(e) {
-            e.preventDefault();
-            alert('Project successfully posted and optimized via smart matching!');
-            switchView('market');
         }
     </script>
 </body>
