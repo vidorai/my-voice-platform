@@ -80,3 +80,25 @@
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
+
+    <!-- Freelance Invoice Generator Section -->
+    <section class="invoice-container">
+      <div class="invoice-header">Dynamic Invoice Generator</div>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
+        Create and preview professional client invoices instantly.
+      </p>
+      
+      <div style="display: grid; gap: 0.75rem;">
+        <input type="text" id="invoice-client" placeholder="Client Name (e.g., Acme Corp)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
+        <input type="text" id="invoice-item" placeholder="Service Description" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="number" id="invoice-price" placeholder="Price ($)" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
+          <input type="number" id="invoice-qty" placeholder="Qty" value="1" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
+        </div>
+        <button id="invoice-btn" class="btn-primary" style="width: 100%;">Generate Invoice</button>
+      </div>
+
+      <div class="invoice-preview" id="invoice-preview-box">
+        // Invoice output will appear here...
+      </div>
+    </section>
