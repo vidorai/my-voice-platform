@@ -67,3 +67,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Reminder Module Event Integration
+import { ReminderModule } from './reminders.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const reminderBtn = document.getElementById('reminder-btn');
+  const reminderClientInput = document.getElementById('reminder-client');
+  const reminderAmountInput = document.getElementById('reminder-amount');
+  const reminderOutput = document.getElementById('reminder-output');
+
+  if (reminderBtn) {
+    reminderBtn.addEventListener('click', () => {
+      const client = reminderClientInput.value || 'Valued Client';
+      const amount = reminderAmountInput.value || '0.00';
+      const dueDate = 'Today';
+
+      const reminder = ReminderModule.generateReminder(client, amount, dueDate);
+      if (reminderOutput) {
+        reminderOutput.value = `${reminder.subject}\n\n${reminder.body}`;
+      }
+    });
+  }
+});
