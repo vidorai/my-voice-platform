@@ -35,10 +35,10 @@
         <div id="marketplaceView" class="flex flex-col flex-1">
             <header class="py-16 px-6 text-center max-w-4xl mx-auto space-y-6">
                 <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/30 px-4 py-1.5 rounded-full text-indigo-300 text-xs font-bold">
-                    <span>🌍 International Multi-Currency & KYC Certified Marketplace</span>
+                    <span>🌍 Worldwide Multi-Currency & Universal KYC Certified Marketplace</span>
                 </div>
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Find top freelance talent worldwide with secure escrow</h1>
-                <p class="text-gray-400 text-sm max-w-xl mx-auto">Access verified global professionals, multi-currency payouts, automatic VAT calculations, and instant dispute arbitration.</p>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">Access verified global professionals from every corner of the world, multi-currency payouts, automatic tax calculations, and instant dispute arbitration.</p>
                 <div class="flex max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-2 shadow-2xl">
                     <input type="text" id="searchInput" placeholder="Search global services (e.g., Full-Stack, AI Video)..." class="w-full bg-transparent px-4 py-3 text-xs focus:outline-none text-white">
                     <button onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-xs transition cursor-pointer">Search</button>
@@ -186,7 +186,7 @@
                         <div class="flex items-center space-x-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span id="gatewayPayPal">PayPal: Not Linked</span></div>
                         <div class="flex items-center space-x-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span id="gatewayPayoneer">Payoneer: Not Linked</span></div>
                         <div class="flex items-center space-x-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span id="linkedCardDisplay">Visa: •••• 4821</span></div>
-                        <div class="flex items-center space-x-2 text-amber-300 font-bold pt-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span id="kycStatusBadge">KYC Tier 1: Verified ✓</span></div>
+                        <div class="flex items-center space-x-2 text-amber-300 font-bold pt-1"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span id="kycStatusBadge">Universal KYC: Verified ✓</span></div>
                     </div>
                 </div>
             </div>
@@ -225,7 +225,7 @@
 
     <!-- Modal System -->
     <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl">
+        <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
             <div id="modalTitle" class="text-2xl font-bold text-emerald-400">Welcome Back</div>
             <div class="space-y-4">
@@ -248,7 +248,7 @@
         &copy; 2026 King AI & Freelance Marketplace. Global Edition. All rights reserved.
     </footer>
 
-    <!-- Scripting with International Currencies, Tax/VAT & Arbitration -->
+    <!-- Scripting with Universal Country List for Freelancers & Clients -->
     <script>
         let currentAuthMode = 'login';
         let currentChatUser = 'Alex Rivera';
@@ -262,6 +262,33 @@
             AUD: { symbol: 'A$', rate: 1.52 },
             CAD: { symbol: 'C$', rate: 1.37 }
         };
+
+        const worldCountries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+            "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+            "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czechia",
+            "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+            "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+            "Fiji", "Finland", "France",
+            "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+            "Haiti", "Honduras", "Hungary",
+            "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
+            "Jamaica", "Japan", "Jordan",
+            "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan",
+            "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+            "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
+            "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway",
+            "Oman",
+            "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+            "Qatar",
+            "Romania", "Russia", "Rwanda",
+            "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+            "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+            "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+            "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+            "Yemen",
+            "Zambia", "Zimbabwe"
+        ];
 
         function changeCurrency() {
             currentCurrency = document.getElementById('currencySelector').value;
@@ -358,28 +385,34 @@
             const btn = document.getElementById('modalSubmitBtn');
             const content = document.getElementById('modalBodyContent');
 
-            title.textContent = 'Global KYC Identity Verification';
+            let countryOptions = worldCountries.map(c => `<option value="${c}">${c}</option>`).join('');
+
+            title.textContent = 'Universal KYC Verification (Freelancer & Client)';
             content.innerHTML = `
+                <div>
+                    <label class="text-xs text-gray-400">Account Role</label>
+                    <select id="kycRole" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 text-white focus:outline-none focus:border-emerald-500">
+                        <option value="Both">Freelancer & Client (Both)</option>
+                        <option value="Freelancer">Freelancer Only</option>
+                        <option value="Client">Client Only</option>
+                    </select>
+                </div>
                 <div>
                     <label class="text-xs text-gray-400">Full Legal Name</label>
                     <input type="text" id="kycName" placeholder="John Doe" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 text-white focus:outline-none focus:border-emerald-500">
                 </div>
                 <div>
-                    <label class="text-xs text-gray-400">Country of Residence</label>
+                    <label class="text-xs text-gray-400">Country of Residence (Global - All Countries)</label>
                     <select id="kycCountry" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 text-white focus:outline-none focus:border-emerald-500">
-                        <option value="US">United States (Standard VAT 0%)</option>
-                        <option value="GB">United Kingdom (VAT 20%)</option>
-                        <option value="EU">European Union (VAT 21%)</option>
-                        <option value="CA">Canada (GST 5%)</option>
-                        <option value="AU">Australia (GST 10%)</option>
+                        ${countryOptions}
                     </select>
                 </div>
                 <div>
-                    <label class="text-xs text-gray-400">Government ID Number (Passport / National ID)</label>
+                    <label class="text-xs text-gray-400">Government ID Number (Passport / National ID / Tax ID)</label>
                     <input type="text" placeholder="AB-1234567" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 text-white focus:outline-none focus:border-emerald-500">
                 </div>
             `;
-            btn.textContent = 'Submit KYC Verification';
+            btn.textContent = 'Submit Universal KYC Verification';
             btn.className = 'w-full bg-amber-500 hover:bg-amber-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition cursor-pointer';
             modal.classList.remove('hidden');
         }
@@ -397,7 +430,7 @@
                     <label class="text-xs text-gray-400">Reason for Dispute</label>
                     <select class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 text-white focus:outline-none focus:border-emerald-500">
                         <option>Milestone deliverables incomplete</option>
-                        <option>Unresponsive freelancer</option>
+                        <option>Unresponsive freelancer / client</option>
                         <option>Quality issues vs project scope</option>
                     </select>
                 </div>
@@ -504,7 +537,7 @@
             content.innerHTML = `
                 <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                     <div class="flex justify-between text-xs"><span class="text-gray-400">Service Fee:</span> <span class="font-bold text-white">${cfg.symbol}${convertedPrice} ${currentCurrency}</span></div>
-                    <div class="flex justify-between text-xs"><span class="text-gray-400">International VAT / GST (10%):</span> <span class="text-gray-300">${cfg.symbol}${vatAmount} ${currentCurrency}</span></div>
+                    <div class="flex justify-between text-xs"><span class="text-gray-400">International Tax / VAT (10%):</span> <span class="text-gray-300">${cfg.symbol}${vatAmount} ${currentCurrency}</span></div>
                     <div class="flex justify-between text-xs border-t border-slate-800 pt-2"><span class="text-gray-400 font-bold">Total with Tax & Escrow:</span> <span class="text-emerald-400 font-extrabold text-sm">${cfg.symbol}${totalAmount} ${currentCurrency}</span></div>
                 </div>
             `;
@@ -523,8 +556,8 @@
                 closeModal();
                 switchView('finance');
             } else if (currentAuthMode === 'kyc') {
-                document.getElementById('kycStatusBadge').textContent = 'KYC Tier 2: Verified ✓';
-                alert('KYC verification submitted and approved successfully!');
+                document.getElementById('kycStatusBadge').textContent = 'Universal KYC: Verified ✓';
+                alert('Universal KYC verification submitted and approved successfully for worldwide trading!');
                 closeModal();
                 switchView('finance');
             } else if (currentAuthMode === 'dispute') {
