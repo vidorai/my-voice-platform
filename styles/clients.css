@@ -1,0 +1,14 @@
+/* Client Management Module Styling */
+.client-select-wrapper {
+  margin-bottom: var(--space-md);
+}
+
+.client-dropdown {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+}
