@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const total = amount + (amount * (rate / 100));
       
       const payoutResult = BankingModule.processPayout(total);
-      resultDiv.textContent = `Total: $${payoutResult.netAmount.toFixed(2)} (${payoutResult.currency})`;
+      document.getElementById('calc-result-display').textContent = `Total: $${payoutResult.netAmount.toFixed(2)} (${payoutResult.currency})`;
     });
   }
 
