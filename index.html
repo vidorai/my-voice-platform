@@ -3,71 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King AI & Freelance Suite</title>
+    <title>King AI & Freelance Suite - Job Matching</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#0f172a] text-white min-h-screen flex flex-col justify-between">
-    <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto w-full">
+    <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto w-full border-b border-slate-800">
         <div class="text-2xl font-bold tracking-tight text-indigo-400">King AI Suite</div>
-        <div class="space-x-4">
-            <button onclick="switchTab('login')" class="text-sm font-medium hover:text-indigo-400 transition">Login</button>
-            <button onclick="switchTab('register')" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium transition">Get Started</button>
+        <div class="space-x-4 text-sm font-medium">
+            <button onclick="switchView('market')" id="navMarket" class="text-indigo-400">Find Work</button>
+            <button onclick="switchView('post')" id="navPost" class="text-gray-400 hover:text-white transition">Post a Job</button>
         </div>
     </nav>
 
-    <main class="max-w-md mx-auto p-6 w-full my-auto">
-        <div id="authContainer" class="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl">
-            <!-- Dynamic Form Content -->
-            <div id="formTitle" class="text-2xl font-bold mb-6 text-center">Welcome Back</div>
-            
-            <div id="channelSelector" class="grid grid-cols-2 gap-3 mb-6">
-                <button type="button" onclick="setRole('client')" id="btnClient" class="p-3 bg-indigo-600 rounded-xl text-sm font-semibold transition">Client</button>
-                <button type="button" onclick="setRole('freelancer')" id="btnFreelancer" class="p-3 bg-slate-800 text-gray-400 rounded-xl text-sm font-semibold transition">Freelancer</button>
+    <main class="max-w-4xl mx-auto p-6 w-full my-auto">
+        <!-- Marketplace View -->
+        <div id="marketView" class="space-y-4">
+            <div class="flex justify-between items-center mb-2">
+                <h1 class="text-2xl font-bold">Open Projects & Smart Matches</h1>
+                <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full">AI Verified</span>
             </div>
+            
+            <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Full-Stack Web App Development</h3>
+                        <p class="text-xs text-gray-400 mt-1">Looking for an expert developer to build a high-performance utility tool and dashboard.</p>
+                    </div>
+                    <span class="text-emerald-400 font-bold text-sm bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20">$1,500</span>
+                </div>
+                <div class="flex justify-between items-center pt-2 border-t border-slate-800 text-xs text-gray-400">
+                    <span>Category: Software Utility</span>
+                    <button onclick="alert('Proposal submitted successfully via AI Match engine!')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl font-medium transition">Apply Now</button>
+                </div>
+            </div>
+        </div>
 
-            <form onsubmit="handleAuth(event)" class="space-y-4">
+        <!-- Job Post View -->
+        <div id="postView" class="hidden bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-2xl">
+            <h2 class="text-2xl font-bold mb-4">Post a New Project</h2>
+            <form onsubmit="handlePostJob(event)" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-1">Email Address</label>
-                    <input type="email" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="name@example.com">
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Project Title</label>
+                    <input type="text" id="jobTitle" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="e.g., Build a short link generator web tool">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 mb-1">Budget ($ USD)</label>
+                        <input type="number" id="jobBudget" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-400 mb-1">Category</label>
+                        <select class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500 text-gray-300">
+                            <option>Software Utility</option>
+                            <option>AI Video & Animation</option>
+                            <option>Digital Marketing</option>
+                        </select>
+                    </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-medium text-gray-400 mb-1">Password</label>
-                    <input type="password" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="••••••••">
+                    <label class="block text-xs font-medium text-gray-400 mb-1">Project Description</label>
+                    <textarea rows="3" required class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-indigo-500" placeholder="Describe scope, requirements, and deliverables..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-600/20 mt-2">Continue</button>
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-indigo-600/20">Publish Job via AI Match</button>
             </form>
         </div>
     </main>
 
-    <footer class="text-center p-6 text-xs text-gray-500">
+    <footer class="text-center p-6 text-xs text-gray-500 border-t border-slate-800">
         &copy; 2026 King AI & Freelance Suite. All rights reserved.
     </footer>
 
     <script>
-        let currentRole = 'client';
-        let isRegister = false;
+        function switchView(view) {
+            const marketV = document.getElementById('marketView');
+            const postV = document.getElementById('postView');
+            const navM = document.getElementById('navMarket');
+            const navP = document.getElementById('navPost');
 
-        function setRole(role) {
-            currentRole = role;
-            const btnC = document.getElementById('btnClient');
-            const btnF = document.getElementById('btnFreelancer');
-            if(role === 'client') {
-                btnC.className = "p-3 bg-indigo-600 rounded-xl text-sm font-semibold transition";
-                btnF.className = "p-3 bg-slate-800 text-gray-400 rounded-xl text-sm font-semibold transition";
+            if(view === 'market') {
+                marketV.classList.remove('hidden');
+                postV.classList.add('hidden');
+                navM.className = "text-indigo-400 font-semibold";
+                navP.className = "text-gray-400 hover:text-white transition";
             } else {
-                btnF.className = "p-3 bg-indigo-600 rounded-xl text-sm font-semibold transition";
-                btnC.className = "p-3 bg-slate-800 text-gray-400 rounded-xl text-sm font-semibold transition";
+                marketV.classList.add('hidden');
+                postV.classList.remove('hidden');
+                navP.className = "text-indigo-400 font-semibold";
+                navM.className = "text-gray-400 hover:text-white transition";
             }
         }
 
-        function switchTab(tab) {
-            isRegister = (tab === 'register');
-            document.getElementById('formTitle').innerText = isRegister ? 'Create Your Account' : 'Welcome Back';
-        }
-
-        function handleAuth(e) {
+        function handlePostJob(e) {
             e.preventDefault();
-            alert('Simulated ' + (isRegister ? 'Registration' : 'Login') + ' successful for ' + currentRole + ' channel!');
+            alert('Project successfully posted and optimized via smart matching!');
+            switchView('market');
         }
     </script>
 </body>
