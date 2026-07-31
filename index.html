@@ -71,6 +71,19 @@
         </div>
         <button class="btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Configure</button>
       </div>
+    
+    <!-- Automated Payment Reminders Section -->
+    <section class="reminder-container">
+      <div class="reminder-header">Automated Payment Reminders</div>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
+        Draft and send professional payment follow-ups to your clients instantly.
+      </p>
+      <div style="display: grid; gap: 0.75rem;">
+        <input type="text" id="reminder-client" placeholder="Client Name" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
+        <input type="text" id="reminder-amount" placeholder="Invoice Total ($)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
+        <button id="reminder-btn" style="background: var(--color-primary, #2563eb); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 500;">Generate Reminder Draft</button>
+        <textarea id="reminder-output" class="reminder-textarea" placeholder="Reminder email draft will appear here..."></textarea>
+      </div>
     </section>
   </main>
 
