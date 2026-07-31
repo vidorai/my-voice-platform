@@ -8,106 +8,52 @@
 </head>
 <body class="bg-[#0f172a] text-white min-h-screen flex flex-col justify-between">
     <!-- Top Navbar -->
-    <nav class="flex justify-between items-center px-8 py-5 max-w-7xl mx-auto w-full border-b border-slate-800">
+    <nav class="flex justify-between items-center px-8 py-5 max-w-7xl mx-auto w-full border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-40">
         <div class="flex items-center space-x-8">
-            <div class="text-2xl font-bold tracking-tight text-emerald-400">fiverr<span class="text-white">.clone</span></div>
-            <div class="hidden md:flex space-x-6 text-sm text-gray-300">
-                <a href="#" class="hover:text-emerald-400 transition">Explore</a>
-                <a href="#" class="hover:text-emerald-400 transition">AI Suite</a>
-            </div>
+            <div class="text-2xl font-bold tracking-tight text-emerald-400">KingAI<span class="text-white">.Market</span></div>
         </div>
-        <div class="space-x-4 text-sm font-medium flex items-center">
-            <button type="button" id="loginBtn" onclick="openModal('login')" class="text-gray-300 hover:text-white px-3 py-2 cursor-pointer z-20">Sign In</button>
-            <button type="button" id="signupBtn" onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2.5 rounded-xl transition shadow-lg shadow-emerald-500/20 cursor-pointer z-20">Join / Sign Up</button>
+        <div class="space-x-3 flex items-center">
+            <button onclick="openModal('login')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-700 cursor-pointer">Sign In</button>
+            <button onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-5 py-2 rounded-xl text-xs font-extrabold transition shadow-lg shadow-emerald-500/20 cursor-pointer">Sign Up</button>
         </div>
     </nav>
 
-    <!-- Hero Search Section -->
-    <header class="bg-gradient-to-b from-slate-900 to-[#0f172a] py-20 px-6 border-b border-slate-800">
-        <div class="max-w-4xl mx-auto text-center space-y-6">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Our freelancers will take it from here</h1>
-            <div class="flex items-center bg-slate-950 border border-slate-700 rounded-2xl p-2 max-w-2xl mx-auto shadow-2xl">
-                <input type="text" id="searchInput" placeholder="Search for any service (e.g., Website Development, TikTok Shop)..." class="w-full bg-transparent px-4 py-3 text-sm focus:outline-none text-white">
-                <button type="button" onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-sm transition cursor-pointer">Search</button>
-            </div>
-            <div id="searchFeedback" class="text-xs text-emerald-400 h-4"></div>
+    <!-- Hero Section -->
+    <header class="py-24 px-6 text-center max-w-4xl mx-auto space-y-6">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Our freelancers will take it from here</h1>
+        <p class="text-gray-400 text-sm max-w-xl mx-auto">Access top-tier verified talent, secure escrow protection, and integrated multi-currency payouts.</p>
+        <div class="flex max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-2 shadow-2xl">
+            <input type="text" id="searchInput" placeholder="Search for services (e.g., Website Development)..." class="w-full bg-transparent px-4 py-3 text-xs focus:outline-none text-white">
+            <button onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-xs transition cursor-pointer">Search</button>
         </div>
+        <div id="searchFeedback" class="text-xs text-emerald-400 font-semibold h-4"></div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-6 py-12 w-full space-y-12">
-        <div>
-            <h2 class="text-2xl font-bold mb-6">Popular services</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <div onclick="openModal('signup')" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
-                    <div class="bg-gradient-to-br from-emerald-950 to-slate-900 h-40 flex items-center justify-center p-4">
-                        <span class="text-emerald-400 font-bold text-lg">TikTok Shop Setup</span>
-                    </div>
-                    <div class="p-4 bg-slate-950">
-                        <div class="text-xs text-gray-400">Build & Scale</div>
-                        <div class="text-sm font-semibold mt-1">E-Commerce Setup</div>
-                    </div>
-                </div>
-
-                <div onclick="openModal('signup')" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
-                    <div class="bg-gradient-to-br from-indigo-950 to-slate-900 h-40 flex items-center justify-center p-4">
-                        <span class="text-indigo-400 font-bold text-lg">Vibe Coding & AI</span>
-                    </div>
-                    <div class="p-4 bg-slate-950">
-                        <div class="text-xs text-gray-400">Custom Apps</div>
-                        <div class="text-sm font-semibold mt-1">AI Web Utilities</div>
-                    </div>
-                </div>
-
-                <div onclick="openModal('signup')" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
-                    <div class="bg-gradient-to-br from-blue-950 to-slate-900 h-40 flex items-center justify-center p-4">
-                        <span class="text-blue-400 font-bold text-lg">Website Development</span>
-                    </div>
-                    <div class="p-4 bg-slate-950">
-                        <div class="text-xs text-gray-400">Full Stack</div>
-                        <div class="text-sm font-semibold mt-1">Netlify & Vercel Apps</div>
-                    </div>
-                </div>
-
-                <div onclick="openModal('signup')" class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
-                    <div class="bg-gradient-to-br from-orange-950 to-slate-900 h-40 flex items-center justify-center p-4">
-                        <span class="text-orange-400 font-bold text-lg">Video Editing</span>
-                    </div>
-                    <div class="p-4 bg-slate-950">
-                        <div class="text-xs text-gray-400">Wan 2.1 AI</div>
-                        <div class="text-sm font-semibold mt-1">Cinematic Ads</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Interactive Authentication Modal -->
-    <div id="authModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+    <!-- Authentication Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl">
-            <button type="button" onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
             <div id="modalTitle" class="text-2xl font-bold text-emerald-400">Create Account</div>
-            
             <div class="space-y-4">
                 <div>
                     <label class="text-xs text-gray-400">Email Address</label>
-                    <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                    <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
                 </div>
                 <div>
                     <label class="text-xs text-gray-400">Password</label>
-                    <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                    <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
                 </div>
-                <button type="button" onclick="submitAuth()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-sm transition shadow-lg shadow-emerald-500/20 cursor-pointer" id="modalSubmitBtn">Sign Up</button>
+                <button onclick="submitAuth()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-emerald-500/20 cursor-pointer" id="modalSubmitBtn">Sign Up</button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-8 px-6 text-center text-xs text-gray-500">
-        &copy; 2026 King AI & Freelance Suite. Fully Interactive Mode.
+    <footer class="border-t border-slate-800 py-6 px-6 text-center text-xs text-gray-500">
+        &copy; 2026 King AI & Freelance Marketplace. All rights reserved.
     </footer>
 
-    <!-- Script Handling Modals & Actions -->
+    <!-- Script -->
     <script>
         let currentAuthMode = 'signup';
 
@@ -116,7 +62,6 @@
             const modal = document.getElementById('authModal');
             const title = document.getElementById('modalTitle');
             const btn = document.getElementById('modalSubmitBtn');
-            
             if (mode === 'login') {
                 title.textContent = 'Welcome Back';
                 btn.textContent = 'Sign In';
@@ -134,10 +79,10 @@
         function submitAuth() {
             const email = document.getElementById('modalEmail').value;
             if (!email) {
-                alert('Please enter a valid email address.');
+                alert('Please enter your email.');
                 return;
             }
-            alert(currentAuthMode === 'signup' ? 'Account created successfully! Welcome to King AI.' : 'Signed in successfully!');
+            alert(currentAuthMode === 'signup' ? 'Account created successfully!' : 'Signed in successfully!');
             closeModal();
         }
 
@@ -145,13 +90,13 @@
             const query = document.getElementById('searchInput').value;
             const feedback = document.getElementById('searchFeedback');
             if (!query) {
-                feedback.textContent = 'Please enter a service name to search.';
+                feedback.textContent = 'Please enter a search keyword.';
                 return;
             }
-            feedback.textContent = `Searching verified freelancers for: "${query}"...`;
+            feedback.textContent = `Searching marketplace for "${query}"...`;
             setTimeout(() => {
-                feedback.textContent = `Found 14 top-rated professionals for "${query}".`;
-            }, 1000);
+                feedback.textContent = `Found top verified experts for "${query}".`;
+            }, 800);
         }
     </script>
 </body>
