@@ -13,8 +13,8 @@
             <div class="text-2xl font-bold tracking-tight text-emerald-400">KingAI<span class="text-white">.Market</span></div>
         </div>
         <div class="space-x-3 flex items-center">
-            <button onclick="openModal('login')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-700 cursor-pointer">Sign In</button>
-            <button onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-5 py-2 rounded-xl text-xs font-extrabold transition shadow-lg shadow-emerald-500/20 cursor-pointer">Sign Up</button>
+            <button onclick="openModal('login')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-lg shadow-indigo-600/20 cursor-pointer">Login</button>
+            <button onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-5 py-2.5 rounded-xl text-xs font-extrabold transition shadow-lg shadow-emerald-500/20 cursor-pointer">Sign Up</button>
         </div>
     </nav>
 
@@ -33,7 +33,7 @@
     <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
-            <div id="modalTitle" class="text-2xl font-bold text-emerald-400">Create Account</div>
+            <div id="modalTitle" class="text-2xl font-bold text-emerald-400">Welcome Back</div>
             <div class="space-y-4">
                 <div>
                     <label class="text-xs text-gray-400">Email Address</label>
@@ -43,7 +43,7 @@
                     <label class="text-xs text-gray-400">Password</label>
                     <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
                 </div>
-                <button onclick="submitAuth()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-emerald-500/20 cursor-pointer" id="modalSubmitBtn">Sign Up</button>
+                <button onclick="submitAuth()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-indigo-600/20 cursor-pointer" id="modalSubmitBtn">Login</button>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
 
     <!-- Script -->
     <script>
-        let currentAuthMode = 'signup';
+        let currentAuthMode = 'login';
 
         function openModal(mode) {
             currentAuthMode = mode;
@@ -64,10 +64,12 @@
             const btn = document.getElementById('modalSubmitBtn');
             if (mode === 'login') {
                 title.textContent = 'Welcome Back';
-                btn.textContent = 'Sign In';
+                btn.textContent = 'Login';
+                btn.className = 'w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-indigo-600/20 cursor-pointer';
             } else {
                 title.textContent = 'Create Account';
                 btn.textContent = 'Sign Up';
+                btn.className = 'w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-emerald-500/20 cursor-pointer';
             }
             modal.classList.remove('hidden');
         }
@@ -82,7 +84,7 @@
                 alert('Please enter your email.');
                 return;
             }
-            alert(currentAuthMode === 'signup' ? 'Account created successfully!' : 'Signed in successfully!');
+            alert(currentAuthMode === 'login' ? 'Logged in successfully!' : 'Account created successfully!');
             closeModal();
         }
 
