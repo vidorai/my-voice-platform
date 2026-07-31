@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>King AI & Freelance Suite</title>
+  <style>
+    :root {
+      --bg-primary: #070b14;
+      --bg-card: #0f172a;
+      --border-color: #1e293b;
+      --accent-green: #1dbf73;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-area { font-size: 20px; font-weight: 800; color: #fff; }
+    .logo-area span { color: var(--accent-green); }
+    .nav-links { display: flex; align-items: center; gap: 16px; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; cursor: pointer; }
+    .btn-join { background: var(--accent-green); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .hero {
+      padding: 70px 20px;
+      text-align: center;
+      background: linear-gradient(rgba(7, 11, 20, 0.8), rgba(7, 11, 20, 0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .hero h1 { font-size: 32px; font-weight: 800; color: #fff; max-width: 700px; margin: 0 auto 20px auto; }
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    .search-container input { flex: 1; padding: 14px 18px; border: none; outline: none; font-size: 14px; color: #0f172a; }
+    .search-container button { background: var(--accent-green); border: none; padding: 0 24px; cursor: pointer; color: #fff; font-weight: 700; }
+    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .section-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #fff; }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+    .cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .cat-card:hover { border-color: var(--accent-green); transform: translateY(-3px); }
+    .cat-icon { font-size: 24px; margin-bottom: 8px; }
+    .cat-title { font-size: 12px; font-weight: 600; color: #fff; }
+    footer { text-align: center; padding: 30px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-color); background: var(--bg-card); margin-top: 50px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-area">KING <span>AI SUITE</span></div>
+    <div class="nav-links">
+      <a href="#">Explore</a>
+      <a href="#">AI Tools</a>
+      <a href="#">Sign In</a>
+      <button class="btn-join">Join</button>
+    </div>
+  </header>
+  <section class="hero">
+    <h1>Powering Global Freelancers & AI Workspaces</h1>
+    <div class="search-container">
+      <input type="text" placeholder="Search for AI tools, developers, designers...">
+      <button>Search</button>
+    </div>
+  </section>
+  <div class="container">
+    <div class="section-title">Popular Categories</div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="cat-icon">📊</div><div class="cat-title">Spreadsheets</div></div>
+      <div class="cat-card"><div class="cat-icon">🎬</div><div class="cat-title">Video Editing</div></div>
+      <div class="cat-card"><div class="cat-icon">🌐</div><div class="cat-title">AI Translation</div></div>
+      <div class="cat-card"><div class="cat-icon">🔒</div><div class="cat-title">Secure Escrow</div></div>
+    </div>
+  </div>
+  <footer>&copy; 2026 King AI & Freelance Suite. Equal Opportunity Platform.</footer>
+</body>
+</html>
