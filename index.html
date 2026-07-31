@@ -13,108 +13,142 @@
             <div class="text-2xl font-bold tracking-tight text-emerald-400">KingAI<span class="text-white">.Market</span></div>
         </div>
         <div class="space-x-3 flex items-center">
-            <button onclick="openModal('login')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl text-xs font-bold transition shadow-lg shadow-indigo-600/20 cursor-pointer">Login</button>
-            <button onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-5 py-2.5 rounded-xl text-xs font-extrabold transition shadow-lg shadow-emerald-500/20 cursor-pointer">Sign Up</button>
+            <button onclick="switchView('marketplace')" id="navMarketBtn" class="text-xs text-gray-300 hover:text-white font-medium cursor-pointer">Marketplace</button>
+            <button onclick="switchView('messenger')" id="navMessengerBtn" class="bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">AI Messenger & Collaboration</button>
+            <button onclick="openModal('login')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-lg shadow-indigo-600/20 cursor-pointer">Login</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="py-20 px-6 text-center max-w-4xl mx-auto space-y-6">
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Find the perfect freelance services for your business</h1>
-        <p class="text-gray-400 text-sm max-w-xl mx-auto">Access top-tier verified talent, secure escrow protection, and integrated multi-currency payouts.</p>
-        <div class="flex max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-2 shadow-2xl">
-            <input type="text" id="searchInput" placeholder="Search for services (e.g., Website Development, AI Video)..." class="w-full bg-transparent px-4 py-3 text-xs focus:outline-none text-white">
-            <button onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-xs transition cursor-pointer">Search</button>
-        </div>
-        <div id="searchFeedback" class="text-xs text-emerald-400 font-semibold h-4"></div>
-    </header>
+    <!-- Main Content Container -->
+    <div id="appContainer" class="flex-1 flex flex-col">
+        <!-- VIEW 1: Marketplace Catalog (Default) -->
+        <div id="marketplaceView" class="flex flex-col flex-1">
+            <header class="py-16 px-6 text-center max-w-4xl mx-auto space-y-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Find the perfect freelance services for your business</h1>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto">Access top-tier verified talent, secure escrow protection, and integrated multi-currency payouts.</p>
+                <div class="flex max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-2 shadow-2xl">
+                    <input type="text" id="searchInput" placeholder="Search for services..." class="w-full bg-transparent px-4 py-3 text-xs focus:outline-none text-white">
+                    <button onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-xs transition cursor-pointer">Search</button>
+                </div>
+                <div id="searchFeedback" class="text-xs text-emerald-400 font-semibold h-4"></div>
+            </header>
 
-    <!-- Gig Marketplace Grid (Fiverr-Style Catalog) -->
-    <main class="max-w-7xl mx-auto px-6 py-10 w-full space-y-8">
-        <div class="flex justify-between items-center border-b border-slate-800 pb-4">
-            <h2 class="text-xl font-bold text-slate-200">Popular Professional Services</h2>
-            <div class="text-xs text-indigo-400 font-semibold cursor-pointer hover:underline">View All Categories &rarr;</div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Gig Card 1 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition group flex flex-col justify-between">
-                <div>
-                    <div class="h-44 bg-gradient-to-br from-indigo-900 to-slate-900 relative flex items-center justify-center p-4">
-                        <span class="text-xs font-bold bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full absolute top-3 left-3">Development</span>
-                        <span class="text-xs font-bold text-slate-300">Full-Stack Web App Development</span>
-                    </div>
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs flex items-center justify-center">JD</div>
-                            <span class="text-xs font-medium text-gray-300">Alex Rivera</span>
-                            <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 4.9 (120)</span>
+            <main class="max-w-7xl mx-auto px-6 py-10 w-full space-y-8">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                    <h2 class="text-xl font-bold text-slate-200">Popular Professional Services</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Gig Card 1 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 bg-gradient-to-br from-indigo-900 to-slate-900 relative flex items-center justify-center p-4">
+                                <span class="text-xs font-bold bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full absolute top-3 left-3">Development</span>
+                                <span class="text-xs font-bold text-slate-300">Full-Stack Web App Development</span>
+                            </div>
+                            <div class="p-5 space-y-3">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs flex items-center justify-center">AR</div>
+                                    <span class="text-xs font-medium text-gray-300">Alex Rivera</span>
+                                    <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 4.9 (120)</span>
+                                </div>
+                                <p class="text-xs text-gray-400 line-clamp-2">I will build a modern, high-conversion web application or custom SaaS platform for your business.</p>
+                            </div>
                         </div>
-                        <p class="text-xs text-gray-400 line-clamp-2">I will build a modern, high-conversion web application or custom SaaS platform for your business.</p>
+                        <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+                            <div><span class="text-[10px] text-gray-500 uppercase block">Starting at</span><span class="text-base font-bold text-emerald-400">$250</span></div>
+                            <button onclick="orderGig('Full-Stack Web App', 250)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                        </div>
+                    </div>
+                    <!-- Gig Card 2 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 bg-gradient-to-br from-emerald-900 to-slate-900 relative flex items-center justify-center p-4">
+                                <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full absolute top-3 left-3">AI & Video</span>
+                                <span class="text-xs font-bold text-slate-300">Cinematic AI Video Generation</span>
+                            </div>
+                            <div class="p-5 space-y-3">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-full bg-indigo-500 text-white font-bold text-xs flex items-center justify-center">VS</div>
+                                    <span class="text-xs font-medium text-gray-300">Vektor Studio</span>
+                                    <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 5.0 (84)</span>
+                                </div>
+                                <p class="text-xs text-gray-400 line-clamp-2">I will create stunning cinematic promotional videos using cutting-edge models like Wan 2.1.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+                            <div><span class="text-[10px] text-gray-500 uppercase block">Starting at</span><span class="text-base font-bold text-emerald-400">$120</span></div>
+                            <button onclick="orderGig('Cinematic AI Video', 120)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                        </div>
+                    </div>
+                    <!-- Gig Card 3 -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition flex flex-col justify-between">
+                        <div>
+                            <div class="h-44 bg-gradient-to-br from-purple-900 to-slate-900 relative flex items-center justify-center p-4">
+                                <span class="text-xs font-bold bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full absolute top-3 left-3">Tools</span>
+                                <span class="text-xs font-bold text-slate-300">Custom Calculators & SaaS Tool</span>
+                            </div>
+                            <div class="p-5 space-y-3">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-full bg-purple-500 text-white font-bold text-xs flex items-center justify-center">TC</div>
+                                    <span class="text-xs font-medium text-gray-300">TechCraft</span>
+                                    <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 4.8 (56)</span>
+                                </div>
+                                <p class="text-xs text-gray-400 line-clamp-2">I will build customized financial or pricing calculator tools deployed seamlessly on Netlify.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+                            <div><span class="text-[10px] text-gray-500 uppercase block">Starting at</span><span class="text-base font-bold text-emerald-400">$90</span></div>
+                            <button onclick="orderGig('Custom Calculator Tool', 90)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                        </div>
                     </div>
                 </div>
-                <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
-                    <div>
-                        <span class="text-[10px] text-gray-500 uppercase block">Starting at</span>
-                        <span class="text-base font-bold text-emerald-400">$250</span>
-                    </div>
-                    <button onclick="orderGig('Full-Stack Web App', 250)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+            </main>
+        </div>
+
+        <!-- VIEW 2: AI Messenger & Collaboration Workspace (Hidden by Default) -->
+        <div id="messengerView" class="hidden flex-1 max-w-7xl mx-auto w-full px-6 py-6 grid grid-cols-1 md:grid-cols-4 gap-6 h-[80vh]">
+            <!-- Sidebar Chats -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col space-y-3 overflow-y-auto">
+                <div class="text-xs font-bold text-gray-400 uppercase tracking-wider">Active Projects</div>
+                <div onclick="selectChat('Alex Rivera', 'Full-Stack Web App', 'Active Escrow: $250')" class="p-3 bg-indigo-600/20 border border-indigo-500/40 rounded-xl cursor-pointer space-y-1">
+                    <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">Alex Rivera</span><span class="w-2 h-2 rounded-full bg-emerald-400"></span></div>
+                    <div class="text-[10px] text-indigo-300 truncate">Full-Stack Web App</div>
+                </div>
+                <div onclick="selectChat('KingAI Co-Pilot', 'AI Assistant', 'Ready to assist')" class="p-3 bg-slate-950 border border-slate-800 rounded-xl cursor-pointer space-y-1 hover:border-slate-700 transition">
+                    <div class="flex justify-between items-center"><span class="text-xs font-bold text-white">KingAI Co-Pilot</span><span class="w-2 h-2 rounded-full bg-indigo-400"></span></div>
+                    <div class="text-[10px] text-gray-400 truncate">Project Brief & Code AI</div>
                 </div>
             </div>
 
-            <!-- Gig Card 2 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition group flex flex-col justify-between">
-                <div>
-                    <div class="h-44 bg-gradient-to-br from-emerald-900 to-slate-900 relative flex items-center justify-center p-4">
-                        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full absolute top-3 left-3">AI & Video</span>
-                        <span class="text-xs font-bold text-slate-300">Cinematic AI Video Generation</span>
-                    </div>
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-7 h-7 rounded-full bg-indigo-500 text-white font-bold text-xs flex items-center justify-center">VK</div>
-                            <span class="text-xs font-medium text-gray-300">Vektor Studio</span>
-                            <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 5.0 (84)</span>
-                        </div>
-                        <p class="text-xs text-gray-400 line-clamp-2">I will create stunning cinematic promotional videos using cutting-edge models like Wan 2.1.</p>
-                    </div>
-                </div>
-                <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+            <!-- Chat Box & Workspace -->
+            <div class="md:col-span-3 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col justify-between overflow-hidden">
+                <!-- Chat Header -->
+                <div class="p-4 border-b border-slate-800 bg-slate-950/50 flex justify-between items-center">
                     <div>
-                        <span class="text-[10px] text-gray-500 uppercase block">Starting at</span>
-                        <span class="text-base font-bold text-emerald-400">$120</span>
+                        <div id="chatActiveTitle" class="text-sm font-bold text-white">Alex Rivera (Full-Stack Web App)</div>
+                        <div id="chatActiveStatus" class="text-[10px] text-emerald-400">Active Escrow Protected Milestone</div>
                     </div>
-                    <button onclick="orderGig('Cinematic AI Video', 120)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                    <button onclick="triggerAICoPilot()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer">Ask AI Co-Pilot</button>
                 </div>
-            </div>
 
-            <!-- Gig Card 3 -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition group flex flex-col justify-between">
-                <div>
-                    <div class="h-44 bg-gradient-to-br from-purple-900 to-slate-900 relative flex items-center justify-center p-4">
-                        <span class="text-xs font-bold bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full absolute top-3 left-3">Tools & Finance</span>
-                        <span class="text-xs font-bold text-slate-300">Custom Calculators & SaaS Tool</span>
-                    </div>
-                    <div class="p-5 space-y-3">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-7 h-7 rounded-full bg-purple-500 text-white font-bold text-xs flex items-center justify-center">TC</div>
-                            <span class="text-xs font-medium text-gray-300">TechCraft</span>
-                            <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 4.8 (56)</span>
-                        </div>
-                        <p class="text-xs text-gray-400 line-clamp-2">I will build customized financial or pricing calculator tools deployed seamlessly on Netlify.</p>
+                <!-- Message Log -->
+                <div id="messageLog" class="p-4 flex-1 overflow-y-auto space-y-4 text-xs">
+                    <div class="flex flex-col space-y-1">
+                        <div class="flex items-center space-x-2"><span class="font-bold text-indigo-400">Alex Rivera</span><span class="text-[10px] text-gray-500">12:10 PM</span></div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 max-w-lg text-gray-300">Hello! I have received your order. I'm starting the database schema setup right now.</div>
                     </div>
                 </div>
-                <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
-                    <div>
-                        <span class="text-[10px] text-gray-500 uppercase block">Starting at</span>
-                        <span class="text-base font-bold text-emerald-400">$90</span>
-                    </div>
-                    <button onclick="orderGig('Custom Calculator Tool', 90)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+
+                <!-- Input Bar -->
+                <div class="p-4 border-t border-slate-800 bg-slate-950/50 flex space-x-2">
+                    <input type="text" id="chatInput" placeholder="Type a message or instructions..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-indigo-500 text-white">
+                    <button onclick="sendMessage()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold text-xs transition cursor-pointer">Send</button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Authentication / Order Modal -->
+    <!-- Modal -->
     <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
@@ -135,14 +169,88 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="border-t border-slate-800 py-6 px-6 text-center text-xs text-gray-500">
         &copy; 2026 King AI & Freelance Marketplace. All rights reserved.
     </footer>
 
-    <!-- Script -->
+    <!-- Scripting -->
     <script>
         let currentAuthMode = 'login';
+        let currentChatUser = 'Alex Rivera';
+
+        function switchView(view) {
+            const marketView = document.getElementById('marketplaceView');
+            const messengerView = document.getElementById('messengerView');
+            const marketBtn = document.getElementById('navMarketBtn');
+            const messengerBtn = document.getElementById('navMessengerBtn');
+
+            if (view === 'messenger') {
+                marketView.classList.add('hidden');
+                messengerView.classList.remove('hidden');
+                messengerBtn.className = 'bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-lg shadow-indigo-600/20 cursor-pointer';
+                marketBtn.className = 'text-xs text-gray-300 hover:text-white font-medium cursor-pointer';
+            } else {
+                messengerView.classList.add('hidden');
+                marketView.classList.remove('flex');
+                marketView.classList.remove('hidden');
+                marketBtn.className = 'text-xs text-white font-bold cursor-pointer';
+                messengerBtn.className = 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer';
+            }
+        }
+
+        function selectChat(name, project, status) {
+            currentChatUser = name;
+            document.getElementById('chatActiveTitle').textContent = `${name} (${project})`;
+            document.getElementById('chatActiveStatus').textContent = status;
+            const log = document.getElementById('messageLog');
+            log.innerHTML = `
+                <div class="flex flex-col space-y-1">
+                    <div class="flex items-center space-x-2"><span class="font-bold text-indigo-400">${name}</span><span class="text-[10px] text-gray-500">Just now</span></div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 max-w-lg text-gray-300">Connected to secure collaboration workspace for ${project}. How can we help you succeed today?</div>
+                </div>
+            `;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const log = document.getElementById('messageLog');
+            if (!input.value) return;
+
+            const userMsg = input.value;
+            log.innerHTML += `
+                <div class="flex flex-col space-y-1 items-end">
+                    <div class="flex items-center space-x-2"><span class="text-[10px] text-gray-500">Just now</span><span class="font-bold text-emerald-400">You</span></div>
+                    <div class="bg-indigo-600/30 border border-indigo-500/30 p-3 rounded-xl max-w-lg text-white">${userMsg}</div>
+                </div>
+            `;
+            input.value = '';
+            log.scrollTop = log.scrollHeight;
+
+            setTimeout(() => {
+                let reply = "Got it! I will integrate this requirement into the milestone checklist right away.";
+                if (currentChatUser === 'KingAI Co-Pilot') {
+                    reply = "AI Analysis: Your instruction has been parsed into structural project tasks. Ready to generate code templates.";
+                }
+                log.innerHTML += `
+                    <div class="flex flex-col space-y-1">
+                        <div class="flex items-center space-x-2"><span class="font-bold text-indigo-400">${currentChatUser}</span><span class="text-[10px] text-gray-500">Just now</span></div>
+                        <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 max-w-lg text-gray-300">${reply}</div>
+                    </div>
+                `;
+                log.scrollTop = log.scrollHeight;
+            }, 800);
+        }
+
+        function triggerAICoPilot() {
+            selectChat('KingAI Co-Pilot', 'AI Assistant', 'Ready to assist');
+            const log = document.getElementById('messageLog');
+            log.innerHTML += `
+                <div class="flex flex-col space-y-1">
+                    <div class="flex items-center space-x-2"><span class="font-bold text-purple-400">KingAI Co-Pilot</span><span class="text-[10px] text-gray-500">Just now</span></div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 max-w-lg text-gray-300">Hello! I am your built-in AI Co-Pilot. I can help write project scopes, draft milestone contracts, or generate code snippets. What would you like to build?</div>
+                </div>
+            `;
+        }
 
         function openModal(mode) {
             currentAuthMode = mode;
@@ -161,16 +269,9 @@
                     <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
                 </div>
             `;
-
-            if (mode === 'login') {
-                title.textContent = 'Welcome Back';
-                btn.textContent = 'Login';
-                btn.className = 'w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-indigo-600/20 cursor-pointer';
-            } else {
-                title.textContent = 'Create Account';
-                btn.textContent = 'Sign Up';
-                btn.className = 'w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-emerald-500/20 cursor-pointer';
-            }
+            title.textContent = 'Welcome Back';
+            btn.textContent = 'Login';
+            btn.className = 'w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-indigo-600/20 cursor-pointer';
             modal.classList.remove('hidden');
         }
 
@@ -187,10 +288,6 @@
                     <div class="flex justify-between text-xs"><span class="text-gray-400">Escrow Fee:</span> <span class="text-emerald-400 font-bold">Secure Protected</span></div>
                     <div class="flex justify-between text-xs border-t border-slate-800 pt-2"><span class="text-gray-400 font-bold">Total Price:</span> <span class="text-emerald-400 font-extrabold text-sm">$${price} USD</span></div>
                 </div>
-                <div>
-                    <label class="text-xs text-gray-400">Project Requirements / Notes for Freelancer</label>
-                    <textarea id="projectNotes" placeholder="Describe what you need..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white h-20"></textarea>
-                </div>
             `;
             btn.textContent = 'Confirm Secure Order & Escrow Deposit';
             btn.className = 'w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-emerald-500/20 cursor-pointer';
@@ -204,16 +301,13 @@
 
         function submitAuth() {
             if (currentAuthMode === 'order') {
-                alert('Order placed successfully! Funds held securely in escrow milestone.');
+                alert('Order placed successfully! Redirecting to secure AI Messenger workspace...');
+                closeModal();
+                switchView('messenger');
             } else {
-                const email = document.getElementById('modalEmail').value;
-                if (!email) {
-                    alert('Please enter your email.');
-                    return;
-                }
-                alert(currentAuthMode === 'login' ? 'Logged in successfully!' : 'Account created successfully!');
+                alert('Logged in successfully!');
+                closeModal();
             }
-            closeModal();
         }
 
         function executeSearch() {
@@ -223,10 +317,7 @@
                 feedback.textContent = 'Please enter a search keyword.';
                 return;
             }
-            feedback.textContent = `Searching marketplace for "${query}"...`;
-            setTimeout(() => {
-                feedback.textContent = `Found top verified experts matching "${query}".`;
-            }, 800);
+            feedback.textContent = `Found top verified experts matching "${query}".`;
         }
     </script>
 </body>
