@@ -19,29 +19,116 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="py-24 px-6 text-center max-w-4xl mx-auto space-y-6">
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Our freelancers will take it from here</h1>
+    <header class="py-20 px-6 text-center max-w-4xl mx-auto space-y-6">
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Find the perfect freelance services for your business</h1>
         <p class="text-gray-400 text-sm max-w-xl mx-auto">Access top-tier verified talent, secure escrow protection, and integrated multi-currency payouts.</p>
         <div class="flex max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-2 shadow-2xl">
-            <input type="text" id="searchInput" placeholder="Search for services (e.g., Website Development)..." class="w-full bg-transparent px-4 py-3 text-xs focus:outline-none text-white">
+            <input type="text" id="searchInput" placeholder="Search for services (e.g., Website Development, AI Video)..." class="w-full bg-transparent px-4 py-3 text-xs focus:outline-none text-white">
             <button onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-xs transition cursor-pointer">Search</button>
         </div>
         <div id="searchFeedback" class="text-xs text-emerald-400 font-semibold h-4"></div>
     </header>
 
-    <!-- Authentication Modal -->
+    <!-- Gig Marketplace Grid (Fiverr-Style Catalog) -->
+    <main class="max-w-7xl mx-auto px-6 py-10 w-full space-y-8">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+            <h2 class="text-xl font-bold text-slate-200">Popular Professional Services</h2>
+            <div class="text-xs text-indigo-400 font-semibold cursor-pointer hover:underline">View All Categories &rarr;</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Gig Card 1 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition group flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-gradient-to-br from-indigo-900 to-slate-900 relative flex items-center justify-center p-4">
+                        <span class="text-xs font-bold bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded-full absolute top-3 left-3">Development</span>
+                        <span class="text-xs font-bold text-slate-300">Full-Stack Web App Development</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-7 h-7 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs flex items-center justify-center">JD</div>
+                            <span class="text-xs font-medium text-gray-300">Alex Rivera</span>
+                            <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 4.9 (120)</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">I will build a modern, high-conversion web application or custom SaaS platform for your business.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+                    <div>
+                        <span class="text-[10px] text-gray-500 uppercase block">Starting at</span>
+                        <span class="text-base font-bold text-emerald-400">$250</span>
+                    </div>
+                    <button onclick="orderGig('Full-Stack Web App', 250)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Gig Card 2 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition group flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-gradient-to-br from-emerald-900 to-slate-900 relative flex items-center justify-center p-4">
+                        <span class="text-xs font-bold bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full absolute top-3 left-3">AI & Video</span>
+                        <span class="text-xs font-bold text-slate-300">Cinematic AI Video Generation</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-7 h-7 rounded-full bg-indigo-500 text-white font-bold text-xs flex items-center justify-center">VK</div>
+                            <span class="text-xs font-medium text-gray-300">Vektor Studio</span>
+                            <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 5.0 (84)</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">I will create stunning cinematic promotional videos using cutting-edge models like Wan 2.1.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+                    <div>
+                        <span class="text-[10px] text-gray-500 uppercase block">Starting at</span>
+                        <span class="text-base font-bold text-emerald-400">$120</span>
+                    </div>
+                    <button onclick="orderGig('Cinematic AI Video', 120)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Gig Card 3 -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition group flex flex-col justify-between">
+                <div>
+                    <div class="h-44 bg-gradient-to-br from-purple-900 to-slate-900 relative flex items-center justify-center p-4">
+                        <span class="text-xs font-bold bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full absolute top-3 left-3">Tools & Finance</span>
+                        <span class="text-xs font-bold text-slate-300">Custom Calculators & SaaS Tool</span>
+                    </div>
+                    <div class="p-5 space-y-3">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-7 h-7 rounded-full bg-purple-500 text-white font-bold text-xs flex items-center justify-center">TC</div>
+                            <span class="text-xs font-medium text-gray-300">TechCraft</span>
+                            <span class="text-xs text-amber-400 ml-auto font-bold">&#9733; 4.8 (56)</span>
+                        </div>
+                        <p class="text-xs text-gray-400 line-clamp-2">I will build customized financial or pricing calculator tools deployed seamlessly on Netlify.</p>
+                    </div>
+                </div>
+                <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-4">
+                    <div>
+                        <span class="text-[10px] text-gray-500 uppercase block">Starting at</span>
+                        <span class="text-base font-bold text-emerald-400">$90</span>
+                    </div>
+                    <button onclick="orderGig('Custom Calculator Tool', 90)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition cursor-pointer">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Authentication / Order Modal -->
     <div id="authModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
             <div id="modalTitle" class="text-2xl font-bold text-emerald-400">Welcome Back</div>
             <div class="space-y-4">
-                <div>
-                    <label class="text-xs text-gray-400">Email Address</label>
-                    <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
-                </div>
-                <div>
-                    <label class="text-xs text-gray-400">Password</label>
-                    <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                <div id="modalBodyContent" class="space-y-4">
+                    <div>
+                        <label class="text-xs text-gray-400">Email Address</label>
+                        <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                    </div>
+                    <div>
+                        <label class="text-xs text-gray-400">Password</label>
+                        <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                    </div>
                 </div>
                 <button onclick="submitAuth()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-indigo-600/20 cursor-pointer" id="modalSubmitBtn">Login</button>
             </div>
@@ -62,6 +149,19 @@
             const modal = document.getElementById('authModal');
             const title = document.getElementById('modalTitle');
             const btn = document.getElementById('modalSubmitBtn');
+            const content = document.getElementById('modalBodyContent');
+            
+            content.innerHTML = `
+                <div>
+                    <label class="text-xs text-gray-400">Email Address</label>
+                    <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400">Password</label>
+                    <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white">
+                </div>
+            `;
+
             if (mode === 'login') {
                 title.textContent = 'Welcome Back';
                 btn.textContent = 'Login';
@@ -74,17 +174,45 @@
             modal.classList.remove('hidden');
         }
 
+        function orderGig(title, price) {
+            const modal = document.getElementById('authModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const btn = document.getElementById('modalSubmitBtn');
+            const content = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = `Checkout: ${title}`;
+            content.innerHTML = `
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <div class="flex justify-between text-xs"><span class="text-gray-400">Service:</span> <span class="font-bold text-white">${title}</span></div>
+                    <div class="flex justify-between text-xs"><span class="text-gray-400">Escrow Fee:</span> <span class="text-emerald-400 font-bold">Secure Protected</span></div>
+                    <div class="flex justify-between text-xs border-t border-slate-800 pt-2"><span class="text-gray-400 font-bold">Total Price:</span> <span class="text-emerald-400 font-extrabold text-sm">$${price} USD</span></div>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400">Project Requirements / Notes for Freelancer</label>
+                    <textarea id="projectNotes" placeholder="Describe what you need..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs mt-1 focus:outline-none focus:border-emerald-500 text-white h-20"></textarea>
+                </div>
+            `;
+            btn.textContent = 'Confirm Secure Order & Escrow Deposit';
+            btn.className = 'w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-xs transition shadow-lg shadow-emerald-500/20 cursor-pointer';
+            currentAuthMode = 'order';
+            modal.classList.remove('hidden');
+        }
+
         function closeModal() {
             document.getElementById('authModal').classList.add('hidden');
         }
 
         function submitAuth() {
-            const email = document.getElementById('modalEmail').value;
-            if (!email) {
-                alert('Please enter your email.');
-                return;
+            if (currentAuthMode === 'order') {
+                alert('Order placed successfully! Funds held securely in escrow milestone.');
+            } else {
+                const email = document.getElementById('modalEmail').value;
+                if (!email) {
+                    alert('Please enter your email.');
+                    return;
+                }
+                alert(currentAuthMode === 'login' ? 'Logged in successfully!' : 'Account created successfully!');
             }
-            alert(currentAuthMode === 'login' ? 'Logged in successfully!' : 'Account created successfully!');
             closeModal();
         }
 
@@ -97,7 +225,7 @@
             }
             feedback.textContent = `Searching marketplace for "${query}"...`;
             setTimeout(() => {
-                feedback.textContent = `Found top verified experts for "${query}".`;
+                feedback.textContent = `Found top verified experts matching "${query}".`;
             }, 800);
         }
     </script>
