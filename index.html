@@ -3,147 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King AI & Freelance Suite - Unified Master Dashboard</title>
+    <title>King AI & Freelance Marketplace</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0f172a] text-white min-h-screen flex flex-col">
-    <!-- Top Header Navigation -->
-    <header class="flex justify-between items-center p-6 max-w-7xl mx-auto w-full border-b border-slate-800">
-        <div class="text-2xl font-bold tracking-tight text-indigo-400">King AI Suite</div>
-        <div class="flex items-center space-x-3">
-            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full">All Systems Operational</span>
-            <div class="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-xs">KA</div>
+<body class="bg-[#0f172a] text-white min-h-screen flex flex-col justify-between">
+    <!-- Top Navbar -->
+    <nav class="flex justify-between items-center px-8 py-5 max-w-7xl mx-auto w-full border-b border-slate-800">
+        <div class="flex items-center space-x-8">
+            <div class="text-2xl font-bold tracking-tight text-emerald-400">fiverr<span class="text-white">.clone</span></div>
+            <div class="hidden md:flex space-x-6 text-sm text-gray-300">
+                <a href="#" class="hover:text-emerald-400 transition">Explore</a>
+                <a href="#" class="hover:text-emerald-400 transition">AI Suite</a>
+                <a href="#" class="hover:text-emerald-400 transition">English</a>
+            </div>
+        </div>
+        <div class="space-x-4 text-sm font-medium">
+            <a href="#" class="text-gray-300 hover:text-white px-3 py-2">Sign In</a>
+            <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2.5 rounded-xl transition shadow-lg shadow-emerald-500/20">Join</a>
+        </div>
+    </nav>
+
+    <!-- Hero Search Section -->
+    <header class="bg-gradient-to-b from-slate-900 to-[#0f172a] py-20 px-6 border-b border-slate-800">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Our freelancers will take it from here</h1>
+            <div class="flex items-center bg-slate-950 border border-slate-700 rounded-2xl p-2 max-w-2xl mx-auto shadow-2xl">
+                <input type="text" placeholder="Search for any service..." class="w-full bg-transparent px-4 py-3 text-sm focus:outline-none text-white">
+                <button class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-sm transition">Search</button>
+            </div>
+            <div class="flex flex-wrap justify-center gap-2 text-xs text-gray-400 pt-2">
+                <span class="border border-slate-700 px-3 py-1.5 rounded-full hover:border-emerald-500 cursor-pointer">Website Development</span>
+                <span class="border border-slate-700 px-3 py-1.5 rounded-full hover:border-emerald-500 cursor-pointer">TikTok Shop</span>
+                <span class="border border-slate-700 px-3 py-1.5 rounded-full hover:border-emerald-500 cursor-pointer">Video Editing</span>
+                <span class="border border-slate-700 px-3 py-1.5 rounded-full hover:border-emerald-500 cursor-pointer">AI Services</span>
+            </div>
         </div>
     </header>
 
-    <!-- Module Switcher Tabs -->
-    <div class="max-w-7xl mx-auto px-6 w-full pt-4 flex overflow-x-auto space-x-2 border-b border-slate-800 pb-3 text-xs">
-        <button onclick="switchTab('analytics')" id="btn-analytics" class="px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold transition whitespace-nowrap">Control Center</button>
-        <button onclick="switchTab('payouts')" id="btn-payouts" class="px-4 py-2 rounded-xl bg-slate-900 text-gray-400 hover:text-white transition whitespace-nowrap">PayPal & Payoneer</button>
-        <button onclick="switchTab('escrow')" id="btn-escrow" class="px-4 py-2 rounded-xl bg-slate-900 text-gray-400 hover:text-white transition whitespace-nowrap">Escrow & Milestones</button>
-        <button onclick="switchTab('chat')" id="btn-chat" class="px-4 py-2 rounded-xl bg-slate-900 text-gray-400 hover:text-white transition whitespace-nowrap">AI Messenger & Chat</button>
-        <button onclick="switchTab('security')" id="btn-security" class="px-4 py-2 rounded-xl bg-slate-900 text-gray-400 hover:text-white transition whitespace-nowrap">Cybersecurity Shield</button>
-    </div>
+    <!-- Popular Services Section -->
+    <main class="max-w-7xl mx-auto px-6 py-12 w-full space-y-12">
+        <div>
+            <h2 class="text-2xl font-bold mb-6">Popular services</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
+                    <div class="bg-gradient-to-br from-emerald-950 to-slate-900 h-40 flex items-center justify-center p-4">
+                        <span class="text-emerald-400 font-bold text-lg">TikTok Shop Setup</span>
+                    </div>
+                    <div class="p-4 bg-slate-950">
+                        <div class="text-xs text-gray-400">Build & Scale</div>
+                        <div class="text-sm font-semibold mt-1">E-Commerce Setup</div>
+                    </div>
+                </div>
 
-    <!-- Main Dynamic Content Container -->
-    <main class="max-w-7xl mx-auto p-6 w-full flex-1 my-auto">
-        
-        <!-- Tab 1: Master Control Analytics -->
-        <div id="tab-analytics" class="space-y-6">
-            <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold">Unified Platform Analytics</h1>
-                <button onclick="alert('Master synchronization successful. All nodes updated.')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs font-semibold transition">Sync Nodes</button>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-2">
-                    <div class="text-xs text-gray-400">Total Platform Volume</div>
-                    <div class="text-xl font-bold text-emerald-400">$142,850.00</div>
-                    <div class="text-[10px] text-gray-400">+18.4% from last month</div>
+                <!-- Card 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
+                    <div class="bg-gradient-to-br from-indigo-950 to-slate-900 h-40 flex items-center justify-center p-4">
+                        <span class="text-indigo-400 font-bold text-lg">Vibe Coding & AI</span>
+                    </div>
+                    <div class="p-4 bg-slate-950">
+                        <div class="text-xs text-gray-400">Custom Apps</div>
+                        <div class="text-sm font-semibold mt-1">AI Web Utilities</div>
+                    </div>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-2">
-                    <div class="text-xs text-gray-400">Active Users</div>
-                    <div class="text-xl font-bold text-indigo-400">1,240</div>
-                    <div class="text-[10px] text-emerald-400">Online across regions</div>
-                </div>
-                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-2">
-                    <div class="text-xs text-gray-400">AI Tool Requests Served</div>
-                    <div class="text-xl font-bold text-indigo-400">48,920</div>
-                    <div class="text-[10px] text-gray-400">99.98% Uptime</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Tab 2: PayPal & Payoneer Payouts -->
-        <div id="tab-payouts" class="space-y-6 hidden">
-            <h1 class="text-2xl font-bold">External Payout Providers</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
-                    <h3 class="font-semibold text-lg text-blue-400">PayPal Business Payouts</h3>
-                    <p class="text-xs text-gray-400">Disburse project funds or withdraw earnings directly to verified PayPal accounts.</p>
-                    <input type="email" placeholder="paypal-account@domain.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-blue-500">
-                    <button onclick="alert('PayPal account linked successfully via OAuth 2.0!')" class="w-full bg-blue-600 hover:bg-blue-500 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-blue-600/20">Connect PayPal</button>
+                <!-- Card 3 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
+                    <div class="bg-gradient-to-br from-blue-950 to-slate-900 h-40 flex items-center justify-center p-4">
+                        <span class="text-blue-400 font-bold text-lg">Website Development</span>
+                    </div>
+                    <div class="p-4 bg-slate-950">
+                        <div class="text-xs text-gray-400">Full Stack</div>
+                        <div class="text-sm font-semibold mt-1">Netlify & Vercel Apps</div>
+                    </div>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
-                    <h3 class="font-semibold text-lg text-orange-400">Payoneer Global Card</h3>
-                    <p class="text-xs text-gray-400">Receive cross-border corporate payments or transfer earnings straight to Payoneer.</p>
-                    <input type="text" placeholder="Payoneer ID / Email" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
-                    <button onclick="alert('Payoneer account verified and linked via RVS API!')" class="w-full bg-orange-600 hover:bg-orange-500 py-3 rounded-xl font-semibold text-sm transition shadow-lg shadow-orange-600/20">Connect Payoneer</button>
+
+                <!-- Card 4 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-emerald-500 transition cursor-pointer">
+                    <div class="bg-gradient-to-br from-orange-950 to-slate-900 h-40 flex items-center justify-center p-4">
+                        <span class="text-orange-400 font-bold text-lg">Video Editing</span>
+                    </div>
+                    <div class="p-4 bg-slate-950">
+                        <div class="text-xs text-gray-400">Wan 2.1 AI</div>
+                        <div class="text-sm font-semibold mt-1">Cinematic Ads</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Tab 3: Escrow & Milestones -->
-        <div id="tab-escrow" class="space-y-6 hidden">
-            <h1 class="text-2xl font-bold">Secure Escrow & Milestones</h1>
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
-                <div class="flex justify-between items-center text-xs">
-                    <span class="font-semibold text-white">Milestone #1: Database Architecture</span>
-                    <span class="text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20 font-semibold">Funded in Escrow</span>
-                </div>
-                <p class="text-xs text-gray-400">Funds are safely locked in smart contract escrow until the deliverables are approved by the client.</p>
-                <button onclick="alert('Milestone release requested! Funds transferring to freelancer wallet.')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-xs font-semibold transition">Release Milestone Funds</button>
+        <!-- Value Proposition Footer Banner -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div class="space-y-2">
+                <div class="font-bold text-emerald-400">Over 700 Categories</div>
+                <p class="text-xs text-gray-400">Access a pool of top talent across specialized tech and creative fields.</p>
+            </div>
+            <div class="space-y-2">
+                <div class="font-bold text-emerald-400">Protected Matching</div>
+                <p class="text-xs text-gray-400">Enjoy a simple, easy-to-use matching experience with escrow protection.</p>
+            </div>
+            <div class="space-y-2">
+                <div class="font-bold text-emerald-400">Quality Within Budget</div>
+                <p class="text-xs text-gray-400">Get quality work done quickly with transparent hourly rates and milestones.</p>
+            </div>
+            <div class="space-y-2">
+                <div class="font-bold text-emerald-400">Secure Payouts</div>
+                <p class="text-xs text-gray-400">Only pay when you're happy with integrated PayPal and Payoneer gateways.</p>
             </div>
         </div>
-
-        <!-- Tab 4: AI Messenger & Chat -->
-        <div id="tab-chat" class="space-y-6 hidden">
-            <h1 class="text-2xl font-bold">Live Messaging & AI Assistant</h1>
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col h-[350px]">
-                <div class="bg-slate-950 px-6 py-3 border-b border-slate-800 text-xs font-semibold text-indigo-400">Active Contract Chat (#CTR-2026-99)</div>
-                <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
-                    <div class="bg-slate-800 p-3 rounded-2xl max-w-md">Client: Hello! Have you checked the PayPal and Payoneer modules?</div>
-                    <div class="bg-indigo-600 p-3 rounded-2xl max-w-md ml-auto text-white">You: Yes, both modules are live and fully active!</div>
-                </div>
-                <div class="bg-slate-950 p-3 border-t border-slate-800 flex gap-2">
-                    <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs focus:outline-none text-white">
-                    <button onclick="sendMessage()" class="bg-indigo-600 px-4 py-2 rounded-xl text-xs font-semibold">Send</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab 5: Cybersecurity Shield -->
-        <div id="tab-security" class="space-y-6 hidden">
-            <h1 class="text-2xl font-bold">Cybersecurity & Fraud Defense</h1>
-            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl space-y-4">
-                <div class="flex justify-between items-center">
-                    <div class="text-sm font-semibold">System Firewall & AES-256 Encryption</div>
-                    <span class="text-emerald-400 text-xs font-bold bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20">Secure</span>
-                </div>
-                <p class="text-xs text-gray-400">Real-time IP behavioral checks and automated bot signature filters are active.</p>
-                <button onclick="alert('Full system audit complete. Zero vulnerabilities detected!')" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-xl text-xs font-semibold transition">Run Security Scan</button>
-            </div>
-        </div>
-
     </main>
 
     <!-- Footer -->
-    <footer class="text-center p-6 text-xs text-gray-500 border-t border-slate-800">
-        &copy; 2026 King AI & Freelance Suite. Unified Master Architecture.
+    <footer class="border-t border-slate-800 py-8 px-6 text-center text-xs text-gray-500">
+        &copy; 2026 King AI & Freelance Suite. Inspired by Fiverr Architecture.
     </footer>
-
-    <!-- Tab Switching Script -->
-    <script>
-        function switchTab(tabName) {
-            const tabs = ['analytics', 'payouts', 'escrow', 'chat', 'security'];
-            tabs.forEach(t => {
-                document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('btn-' + t).className = 'px-4 py-2 rounded-xl bg-slate-900 text-gray-400 hover:text-white transition whitespace-nowrap';
-            });
-            document.getElementById('tab-' + tabName).classList.remove('hidden');
-            document.getElementById('btn-' + tabName).className = 'px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold transition whitespace-nowrap';
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            if (!input.value.trim()) return;
-            const chatContainer = document.getElementById('chat-messages');
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'bg-indigo-600 p-3 rounded-2xl max-w-md ml-auto text-white';
-            msgDiv.textContent = 'You: ' + input.value;
-            chatContainer.appendChild(msgDiv);
-            input.value = '';
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-    </script>
 </body>
 </html>
