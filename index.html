@@ -1,135 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KaiLancer | AI & Freelance Suite</title>
-  <style>
-    :root {
-      --bg-primary: #070b14;
-      --bg-card: #0f172a;
-      --border-color: #1e293b;
-      --accent-green: #1dbf73;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-main); margin: 0; padding: 0; box-sizing: border-box; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-bottom: 1px solid var(--border-color); background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 100; }
-    .logo-area { font-size: 20px; font-weight: 800; color: #fff; cursor: pointer; }
-    .logo-area span { color: var(--accent-green); }
-    .nav-links { display: flex; align-items: center; gap: 16px; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; cursor: pointer; }
-    .btn-join { background: var(--accent-green); color: #fff; border: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; }
-    .hero { padding: 70px 20px; text-align: center; background: linear-gradient(rgba(7, 11, 20, 0.8), rgba(7, 11, 20, 0.95)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover; border-bottom: 1px solid var(--border-color); }
-    .hero h1 { font-size: 32px; font-weight: 800; color: #fff; max-width: 700px; margin: 0 auto 20px auto; }
-    .search-container { max-width: 600px; margin: 0 auto; display: flex; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
-    .search-container input { flex: 1; padding: 14px 18px; border: none; outline: none; font-size: 14px; color: #0f172a; }
-    .search-container button { background: var(--accent-green); border: none; padding: 0 24px; cursor: pointer; color: #fff; font-weight: 700; }
-    .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-    .section-title { font-size: 20px; font-weight: 700; margin-bottom: 20px; color: #fff; }
-    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; margin-bottom: 40px; }
-    .cat-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 20px 10px; text-align: center; cursor: pointer; transition: 0.2s; }
-    .cat-card:hover { border-color: var(--accent-green); transform: translateY(-3px); }
-    .cat-icon { font-size: 24px; margin-bottom: 8px; }
-    .cat-title { font-size: 12px; font-weight: 600; color: #fff; }
-    .gig-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-    .gig-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; transition: 0.2s; cursor: pointer; }
-    .gig-card:hover { border-color: var(--accent-green); transform: translateY(-3px); }
-    .gig-img { height: 140px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 32px; }
-    .gig-body { padding: 16px; }
-    .gig-author { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-    .gig-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 12px; height: 40px; overflow: hidden; }
-    .gig-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); padding-top: 10px; font-size: 13px; font-weight: 700; color: var(--accent-green); }
-    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(7, 11, 20, 0.85); display: none; justify-content: center; align-items: center; z-index: 1000; }
-    .modal-card { background: var(--bg-card); border: 1px solid var(--border-color); width: 100%; max-width: 400px; padding: 30px; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
-    .modal-card h2 { margin-top: 0; color: #fff; font-size: 22px; text-align: center; margin-bottom: 20px; }
-    .form-group { margin-bottom: 15px; }
-    .form-group label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-    .form-group input { width: 100%; padding: 10px 12px; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 6px; color: #fff; box-sizing: border-box; outline: none; }
-    .btn-submit { width: 100%; background: var(--accent-green); color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: 700; cursor: pointer; margin-top: 10px; }
-    .close-modal { text-align: center; margin-top: 15px; font-size: 12px; color: var(--text-muted); cursor: pointer; }
-    footer { text-align: center; padding: 30px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border-color); background: var(--bg-card); margin-top: 50px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Translation - Kailancer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <div class="logo-area">KAI<span>LANCER</span></div>
-    <div class="nav-links">
-      <a href="#">Explore</a>
-      <a href="#">AI Tools</a>
-      <a onclick="toggleAuth(true)">Sign In</a>
-      <button class="btn-join" onclick="toggleAuth(true)">Join</button>
-    </div>
-  </header>
-
-  <section class="hero">
-    <h1>Powering Global Freelancers & AI Workspaces</h1>
-    <div class="search-container">
-      <input type="text" placeholder="Search for AI tools, developers, designers...">
-      <button>Search</button>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="section-title">Popular Categories</div>
-    <div class="cat-grid">
-      <div class="cat-card"><div class="cat-icon">📊</div><div class="cat-title">Spreadsheets</div></div>
-      <div class="cat-card"><div class="cat-icon">🎬</div><div class="cat-title">Video Editing</div></div>
-      <div class="cat-card"><div class="cat-icon">🌐</div><div class="cat-title">AI Translation</div></div>
-      <div class="cat-card"><div class="cat-icon">🔒</div><div class="cat-title">Secure Escrow</div></div>
-    </div>
-
-    <div class="section-title">Featured Professional Gigs</div>
-    <div class="gig-grid">
-      <div class="gig-card">
-        <div class="gig-img">📊</div>
-        <div class="gig-body">
-          <div class="gig-author">by Alex Morgan</div>
-          <div class="gig-title">I will build advanced automated Excel & Google Sheet dashboards</div>
-          <div class="gig-footer"><span>Starting at</span> <span>$50</span></div>
+<body class="bg-[#0b0f19] text-white min-h-screen flex flex-col justify-between">
+    <nav class="flex justify-between items-center p-6 border-b border-gray-800">
+        <a href="/" class="text-xl font-bold tracking-wider text-green-400">KAILANCER</a>
+        <a href="/" class="text-sm text-gray-400 hover:text-white">&larr; Back to Home</a>
+    </nav>
+    <main class="max-w-2xl mx-auto p-6 w-full flex-grow">
+        <h1 class="text-3xl font-bold mb-2">AI Translation Workspace</h1>
+        <p class="text-gray-400 mb-6">Translate your project descriptions, documents, or chats instantly using AI.</p>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 shadow-xl space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Text to Translate</label>
+                <textarea id="sourceText" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-green-500" placeholder="Enter text here..."></textarea>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Target Language</label>
+                <select id="targetLang" class="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-white focus:outline-none focus:border-green-500">
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="zh">Chinese</option>
+                    <option value="ur">Urdu</option>
+                </select>
+            </div>
+            <button onclick="simulateTranslation()" class="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-3 rounded-lg transition">
+                Translate with AI
+            </button>
+            <div class="mt-4">
+                <label class="block text-sm font-medium text-gray-300 mb-2">Result</label>
+                <div id="resultBox" class="w-full bg-gray-800 border border-gray-700 rounded-lg p-3 text-gray-300 min-h-[100px]">Translation will appear here...</div>
+            </div>
         </div>
-      </div>
-      <div class="gig-card">
-        <div class="gig-img">🎬</div>
-        <div class="gig-body">
-          <div class="gig-author">by Sarah Jenkins</div>
-          <div class="gig-title">I will edit viral AI video shorts and reels with subtitles</div>
-          <div class="gig-footer"><span>Starting at</span> <span>$35</span></div>
-        </div>
-      </div>
-      <div class="gig-card">
-        <div class="gig-img">🌐</div>
-        <div class="gig-body">
-          <div class="gig-author">by Kenji Sato</div>
-          <div class="gig-title">I will provide native multi-language AI translation & localization</div>
-          <div class="gig-footer"><span>Starting at</span> <span>$25</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="authModal">
-    <div class="modal-card">
-      <h2>Join KaiLancer</h2>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="name@example.com">
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" placeholder="At least 8 characters">
-      </div>
-      <button class="btn-submit">Continue to Workspace</button>
-      <div class="close-modal" onclick="toggleAuth(false)">Cancel / Close</div>
-    </div>
-  </div>
-
-  <footer>&copy; 2026 KaiLancer. All rights reserved.</footer>
-
-  <script>
-    function toggleAuth(show) {
-      document.getElementById('authModal').style.display = show ? 'flex' : 'none';
-    }
-  </script>
+    </main>
+    <script>
+        function simulateTranslation() {
+            const text = document.getElementById('sourceText').value;
+            const lang = document.getElementById('targetLang').value;
+            const resultBox = document.getElementById('resultBox');
+            if (!text.trim()) {
+                resultBox.innerText = "Please enter some text first!";
+                return;
+            }
+            resultBox.innerText = "Translating with AI...";
+            setTimeout(() => {
+                resultBox.innerText = "[Mock AI Translation (" + lang.toUpperCase() + ")]: " + text + " (Translated successfully!)";
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
