@@ -16,9 +16,9 @@
                 <a href="#" class="hover:text-emerald-400 transition">AI Suite</a>
             </div>
         </div>
-        <div class="space-x-4 text-sm font-medium">
-            <button onclick="openModal('login')" class="text-gray-300 hover:text-white px-3 py-2">Sign In</button>
-            <button onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2.5 rounded-xl transition shadow-lg shadow-emerald-500/20">Join / Sign Up</button>
+        <div class="space-x-4 text-sm font-medium flex items-center">
+            <button type="button" id="loginBtn" onclick="openModal('login')" class="text-gray-300 hover:text-white px-3 py-2 cursor-pointer z-20">Sign In</button>
+            <button type="button" id="signupBtn" onclick="openModal('signup')" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-4 py-2.5 rounded-xl transition shadow-lg shadow-emerald-500/20 cursor-pointer z-20">Join / Sign Up</button>
         </div>
     </nav>
 
@@ -28,7 +28,7 @@
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Our freelancers will take it from here</h1>
             <div class="flex items-center bg-slate-950 border border-slate-700 rounded-2xl p-2 max-w-2xl mx-auto shadow-2xl">
                 <input type="text" id="searchInput" placeholder="Search for any service (e.g., Website Development, TikTok Shop)..." class="w-full bg-transparent px-4 py-3 text-sm focus:outline-none text-white">
-                <button onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-sm transition">Search</button>
+                <button type="button" onclick="executeSearch()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-6 py-3 rounded-xl font-bold text-sm transition cursor-pointer">Search</button>
             </div>
             <div id="searchFeedback" class="text-xs text-emerald-400 h-4"></div>
         </div>
@@ -85,19 +85,19 @@
     <!-- Interactive Authentication Modal -->
     <div id="authModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg font-bold">&times;</button>
+            <button type="button" onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl font-bold cursor-pointer">&times;</button>
             <div id="modalTitle" class="text-2xl font-bold text-emerald-400">Create Account</div>
             
             <div class="space-y-4">
                 <div>
                     <label class="text-xs text-gray-400">Email Address</label>
-                    <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm mt-1 focus:outline-none focus:border-emerald-500">
+                    <input type="email" id="modalEmail" placeholder="name@example.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm mt-1 focus:outline-none focus:border-emerald-500 text-white">
                 </div>
                 <div>
                     <label class="text-xs text-gray-400">Password</label>
-                    <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm mt-1 focus:outline-none focus:border-emerald-500">
+                    <input type="password" id="modalPassword" placeholder="••••••••" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm mt-1 focus:outline-none focus:border-emerald-500 text-white">
                 </div>
-                <button onclick="submitAuth()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-sm transition shadow-lg shadow-emerald-500/20" id="modalSubmitBtn">Sign Up</button>
+                <button type="button" onclick="submitAuth()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 py-3 rounded-xl font-bold text-sm transition shadow-lg shadow-emerald-500/20 cursor-pointer" id="modalSubmitBtn">Sign Up</button>
             </div>
         </div>
     </div>
