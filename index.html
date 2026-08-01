@@ -129,6 +129,14 @@
       alert("Multi-Currency Wallet (PKR / Global) API Gateway connected successfully. Ready for routing sync.");
     }
 
+
+    function convertCurrency() {
+      const pkr = parseFloat(document.getElementById("pkrAmount").value) || 0;
+      // Assuming a standard baseline rate e.g. 280 PKR per USD
+      const usd = pkr / 280;
+      document.getElementById("usdResult").textContent = "Equivalent: $" + usd.toFixed(2) + " USD";
+    }
+
 </script>
 </body>
 </html>
