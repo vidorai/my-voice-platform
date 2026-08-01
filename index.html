@@ -40,6 +40,17 @@
               
               <label style="display:block; font-size: 0.875rem; margin-bottom: 0.25rem;">Fee Rate (%):</label>
               <input type="number" id="calc-rate" placeholder="0" value="0" style="width:100%;padding:0.5rem;border:1px solid var(--color-border);border-radius:4px;background:var(--color-background);color:var(--color-text);">
+  <button onclick="
+    const amt = parseFloat(document.getElementById('calc-amount')?.value) || 0;
+    const rt = parseFloat(document.getElementById('calc-rate')?.value) || 0;
+    const tot = amt + (amt * (rt / 100));
+    const disp = document.getElementById('calc-result-display');
+    if (disp) disp.textContent = 'Total: $' + tot.toFixed(2);
+  " style="width:100%;background:var(--color-primary,#2563eb);color:white;border:none;padding:0.75rem;border-radius:4px;cursor:pointer;font-weight:600;margin:1rem 0;">Calculate Free Total</button>
+
+  <div style="margin-top: 0.75rem; font-weight: 600; text-align: center;" id="calc-result-display">
+    Total: $0.00
+  </div>
               
               <button onclick="
   const amt = parseFloat(document.getElementById('calc-amount')?.value) || 0;
@@ -204,9 +215,7 @@
  + tot.toFixed(2);
   " style="width:100%;background:var(--color-primary,#2563eb);color:white;border:none;padding:0.75rem;border-radius:4px;cursor:pointer;font-weight:600;margin:1rem 0;">Calculate Free Total</button>
 
-  <div style="margin-top: 0.75rem; font-weight: 600; text-align: center;" id="calc-result-display">
-    Total: $0.00
-  </div>
+  
             </div>
           </div>
         </div>
