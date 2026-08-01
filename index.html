@@ -106,6 +106,24 @@
         badge.style.background = "#10b981";
       }
     }
-  </script>
+  
+    function sendReminder() {
+      const client = document.getElementById("clientName").value.trim();
+      const amount = document.getElementById("invoiceAmount").value.trim();
+      const status = document.getElementById("reminderStatus");
+      
+      if (!client || !amount) {
+        status.style.color = "#ef4444";
+        status.textContent = "Please fill in both fields.";
+        return;
+      }
+      
+      status.style.color = "#10b981";
+      status.textContent = "Reminder successfully sent to " + client + " for $" + amount + "!";
+      document.getElementById("clientName").value = "";
+      document.getElementById("invoiceAmount").value = "";
+    }
+
+</script>
 </body>
 </html>
