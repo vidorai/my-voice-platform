@@ -50,7 +50,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Custom Calculator & SaaS Tool</h1>
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <h1 style="margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--color-primary);">Custom Platform</h1>
+      <button onclick="toggleTheme()" style="width: auto; margin: 0; padding: 0.3rem 0.6rem; background: var(--color-border); color: var(--color-text); border: none; border-radius: 4px; font-size: 0.75rem; cursor: pointer;">Toggle Theme</button>
+    </div>
+
     <p style="font-size: 0.9rem; color: var(--color-text-muted); text-align: center; margin-bottom: 1.5rem;">
       Calculate project fees, escrow splits, and instant currency conversions with zero overhead.
     </p>
@@ -135,6 +140,25 @@
       // Assuming a standard baseline rate e.g. 280 PKR per USD
       const usd = pkr / 280;
       document.getElementById("usdResult").textContent = "Equivalent: $" + usd.toFixed(2) + " USD";
+    }
+
+
+    let isDarkMode = false;
+    function toggleTheme() {
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        document.documentElement.style.setProperty("--color-bg", "#111827");
+        document.documentElement.style.setProperty("--color-card", "#1f2937");
+        document.documentElement.style.setProperty("--color-text", "#f9fafb");
+        document.documentElement.style.setProperty("--color-text-muted", "#9ca3af");
+        document.documentElement.style.setProperty("--color-border", "#374151");
+      } else {
+        document.documentElement.style.setProperty("--color-bg", "#f9fafb");
+        document.documentElement.style.setProperty("--color-card", "#ffffff");
+        document.documentElement.style.setProperty("--color-text", "#111827");
+        document.documentElement.style.setProperty("--color-text-muted", "#4b5563");
+        document.documentElement.style.setProperty("--color-border", "#e5e7eb");
+      }
     }
 
 </script>
