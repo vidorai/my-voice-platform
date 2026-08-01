@@ -74,7 +74,17 @@
       </div>
     </div>
 
-    <div class="section-title">Connected Payout Accounts</div>
+    
+    <div class="card" style="margin-top: 1.5rem;">
+      <div style="font-weight: 600; margin-bottom: 0.25rem;">Quick Client Invoice</div>
+      <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Generate an instant bill for your freelance services.</div>
+      <label style="font-size: 0.875rem; font-weight: 500;">Client Name / Project:</label>
+      <input type="text" id="clientName" value="Acme Corp Web Redesign" style="width: 100%; padding: 0.75rem; margin-top: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--color-border); border-radius: 6px; box-sizing: border-box; font-size: 1rem; background: var(--color-card); color: var(--color-text);">
+      <button onclick="generateInvoice()" style="width: 100%; padding: 0.75rem; background: var(--color-primary); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Generate & Copy Invoice Summary</button>
+      <div id="invoiceOutput" style="margin-top: 1rem; font-size: 0.875rem; color: var(--color-text-muted);"></div>
+    </div>
+
+    <div class="section-title" style="margin-top: 1.5rem;">Connected Payout Accounts</div>
     
     <div class="card" id="payout-card-1">
       <div style="font-weight: 600; margin-bottom: 0.25rem;">Global Bank Transfer (USD / EUR)</div>
@@ -169,6 +179,14 @@
           }
         });
       }
+    }
+
+
+    function generateInvoice() {
+      const client = document.getElementById("clientName").value;
+      const base = document.getElementById("baseAmount") ? document.getElementById("baseAmount").value : "1000";
+      const output = document.getElementById("invoiceOutput");
+      output.innerHTML = "Invoice generated successfully for <strong>" + client + "</strong>. Total Due: <strong>$" + base + " USD</strong>. Ready to send via secure portal.";
     }
 
 </script>
