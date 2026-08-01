@@ -83,7 +83,7 @@
     <div class="card">
       <div style="font-weight: 600; margin-bottom: 0.25rem;">Multi-Currency Wallet (PKR / Global)</div>
       <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Connected via Secure API Gateway</div>
-      <div style="text-align: right; font-size: 0.875rem; font-weight: 600; color: var(--color-primary);">Configure</div>
+      <div style="text-align: right; margin-top: 0.5rem;"><button onclick="configureWallet()" style="width: auto; margin: 0; padding: 0.3rem 0.75rem; background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); font-size: 0.75rem; border-radius: 4px; cursor: pointer;">Configure Wallet</button></div>
     </div>
   </div>
 
@@ -122,6 +122,11 @@
       status.textContent = "Reminder successfully sent to " + client + " for $" + amount + "!";
       document.getElementById("clientName").value = "";
       document.getElementById("invoiceAmount").value = "";
+    }
+
+
+    function configureWallet() {
+      alert("Multi-Currency Wallet (PKR / Global) API Gateway connected successfully. Ready for routing sync.");
     }
 
 </script>
