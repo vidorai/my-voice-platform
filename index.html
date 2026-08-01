@@ -75,75 +75,12 @@
       
       <div class="account-card">
         <div class="account-info">
-          <h4>Global Bank Transfer (USD / EUR)</h4>
-          <p>Verified & Ready • Instant Zero-Fee Escrow Routing</p>
-        </div>
-        <span class="badge" style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Active</span>
-      </div>
-
-      <div class="account-card">
-        <div class="account-info">
-          <h4>Multi-Currency Wallet (PKR / Global)</h4>
-          <p>Connected via Secure API Gateway</p>
-        </div>
-        <button class="btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Configure</button>
-      </div>
-    
-    <!-- Automated Payment Reminders Section -->
-    <section class="reminder-container">
-      <div class="reminder-header">Automated Payment Reminders</div>
-      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
-        Draft and send professional payment follow-ups to your clients instantly.
-      </p>
-      <div style="display: grid; gap: 0.75rem;">
-        <input type="text" id="reminder-client" placeholder="Client Name" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
-        <input type="text" id="reminder-amount" placeholder="Invoice Total ($)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
-        <button id="reminder-btn" style="background: var(--color-primary, #2563eb); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 500;">Generate Reminder Draft</button>
-        <textarea id="reminder-output" class="reminder-textarea" placeholder="Reminder email draft will appear here..."></textarea>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 King AI & Freelance Marketplace. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script type="module" src="js/app.js"></script>
-</body>
-</html>
-
-    <!-- Freelance Invoice Generator Section -->
-    <section class="invoice-container">
-      <div class="invoice-header">Dynamic Invoice Generator</div>
-      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
-        Create and preview professional client invoices instantly.
-      </p>
-      
-      <div style="display: grid; gap: 0.75rem;">
-        <input type="text" id="invoice-client" placeholder="Client Name (e.g., Acme Corp)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        <input type="text" id="invoice-item" placeholder="Service Description" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        <div style="display: flex; gap: 0.5rem;">
-          <input type="number" id="invoice-price" placeholder="Price ($)" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-          <input type="number" id="invoice-qty" placeholder="Qty" value="1" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        </div>
-        <button id="invoice-btn" class="btn-primary" style="width: 100%;">Generate Invoice</button>
-      </div>
-
-      <div class="invoice-preview" id="invoice-preview-box">
-        // Invoice output will appear here...
-      </div>
-    </section>
- <button onclick="
-    const amt = parseFloat(document.getElementById('calc-amount')?.value) || 0;
-    const rt = parseFloat(document.getElementById('calc-rate')?.value) || 0;
-    const tot = amt + (amt * (rt / 100));
-    const disp = document.getElementById('calc-result-display');
-    if (disp) disp.textContent = 'Total: 
+          <h4>Global Bank Transfer (USD / EUR)</h3>
+            <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Verified & Ready • Instant Zero-Fee Escrow Routing</p>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="payout-status-badge" style="background: #10b981; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600;">Active</span>
+              <button onclick="togglePayout('payout-card-1')" style="background: transparent; border: 1px solid var(--color-border); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; cursor: pointer; color: var(--color-text);">Toggle Status</button>
             </div>
-          </div>
-        </div>
       </div>
     </section>
 
