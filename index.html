@@ -3,211 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KingAI.Market - Global Edition</title>
-  <link rel="stylesheet" href="styles/global.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/components.css">
-  <link rel="stylesheet" href="styles/banking.css">
-<link rel="stylesheet" href="styles/invoice.css">
-<link rel="stylesheet" href="styles/clients.css">
-<link rel="stylesheet" href="styles/reminders.css">
+  <title>Custom Calculator & SaaS Tool</title>
+  <style>
+    :root {
+      --color-bg: #f9fafb;
+      --color-card: #ffffff;
+      --color-text: #111827;
+      --color-text-muted: #4b5563;
+      --color-primary: #2563eb;
+      --color-primary-hover: #1d4ed8;
+      --color-border: #e5e7eb;
+      --radius-md: 8px;
+      --space-md: 1rem;
+      --space-sm: 0.75rem;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      margin: 0;
+      padding: 1rem;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    h1 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; text-align: center; color: var(--color-primary); }
+    .section-title { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 1rem; }
+    .card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      margin-bottom: var(--space-sm);
+      background: #fff;
+    }
+    .badge-active { background: #10b981; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+    input, button { width: 100%; padding: 0.75rem; margin-top: 0.5rem; margin-bottom: 1rem; border: 1px solid var(--color-border); border-radius: 6px; box-sizing: border-box; font-size: 1rem; }
+    button { background: var(--color-primary); color: white; font-weight: 600; border: none; cursor: pointer; }
+    button:hover { background: var(--color-primary-hover); }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>KingAI.Market</h1>
-    </div>
-  </header>
+  <div class="container">
+    <h1>Custom Calculator & SaaS Tool</h1>
+    <p style="font-size: 0.9rem; color: var(--color-text-muted); text-align: center; margin-bottom: 1.5rem;">
+      Calculate project fees, escrow splits, and instant currency conversions with zero overhead.
+    </p>
 
-  <main class="container">
-    <section>
-      <h2>Global Verified Services</h2>
-      <p>Secure escrow, multi-currency payouts, and AI-driven workflow optimization.</p>
+    <div class="card">
+      <label style="font-size: 0.875rem; font-weight: 500;">Base Amount ($):</label>
+      <input type="number" id="baseAmount" value="1000" oninput="calculate()">
       
-      <div class="card-grid">
-        <!-- Calculator Tool Card -->
-        <div class="service-card">
-          <div class="service-banner" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">
-            Custom Calculator & SaaS Tool
-          </div>
-          <div class="service-body">
-            <span class="badge">Tools</span>
-            <p>Calculate project fees, escrow splits, and instant currency conversions with zero overhead.</p>
-            
-            <div style="background: var(--color-background); padding: var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-              <label style="display:block; font-size: 0.875rem; margin-bottom: 0.25rem;">Base Amount ($):</label>
-              <input type="number" id="calc-amount" placeholder="100" value="100" style="width:100%;padding:0.5rem;border:1px solid var(--color-border);border-radius:4px;background:var(--color-background);color:var(--color-text);">
-              
-              <label style="display:block; font-size: 0.875rem; margin-bottom: 0.25rem;">Fee Rate (%):</label>
-              <input type="number" id="calc-rate" placeholder="0" value="0" style="width:100%;padding:0.5rem;border:1px solid var(--color-border);border-radius:4px;background:var(--color-background);color:var(--color-text);">
-  <button onclick="
-    const amt = parseFloat(document.getElementById('calc-amount')?.value) || 0;
-    const rt = parseFloat(document.getElementById('calc-rate')?.value) || 0;
-    const tot = amt + (amt * (rt / 100));
-    const disp = document.getElementById('calc-result-display');
-    if (disp) disp.textContent = 'Total: $' + tot.toFixed(2);
-  " style="width:100%;background:var(--color-primary,#2563eb);color:white;border:none;padding:0.75rem;border-radius:4px;cursor:pointer;font-weight:600;margin:1rem 0;">Calculate Free Total</button>
+      <label style="font-size: 0.875rem; font-weight: 500;">Fee Rate (%):</label>
+      <input type="number" id="feeRate" value="50" oninput="calculate()">
+      
+      <button onclick="calculate()">Calculate Free Total</button>
+      
+      <div style="text-align: center; font-size: 1.1rem; font-weight: 700; margin-top: 1rem;" id="resultDisplay">
+        Total: $1500.00
+      </div>
+    </div>
 
-  <div style="margin-top: 0.75rem; font-weight: 600; text-align: center; font-size: 1.1rem; color: var(--color-text);" id="calc-result-display">
-    Total: $140.00
+    <div class="section-title">Connected Payout Accounts</div>
+    
+    <div class="card" id="payout-card-1">
+      <div style="font-weight: 600; margin-bottom: 0.25rem;">Global Bank Transfer (USD / EUR)</div>
+      <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Verified & Ready • Instant Zero-Fee Escrow Routing</div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="payout-status-badge badge-active">Active</span>
+        <button onclick="togglePayout()" style="width: auto; margin: 0; padding: 0.3rem 0.6rem; background: transparent; color: var(--color-text); border: 1px solid var(--color-border); font-size: 0.75rem;">Toggle Status</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight: 600; margin-bottom: 0.25rem;">Multi-Currency Wallet (PKR / Global)</div>
+      <div style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Connected via Secure API Gateway</div>
+      <div style="text-align: right; font-size: 0.875rem; font-weight: 600; color: var(--color-primary);">Configure</div>
+    </div>
   </div>
-  
 
-  
-              
-              <button onclick="
-  const amt = parseFloat(document.getElementById('calc-amount')?.value) || 0;
-  const rt = parseFloat(document.getElementById('calc-rate')?.value) || 0;
-  const tot = amt + (amt * (rt / 100));
-  const disp = document.getElementById('calc-result-display');
-  if (disp) disp.textContent = 'Total: 
-              
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <script>
+    function calculate() {
+      const base = parseFloat(document.getElementById("baseAmount").value) || 0;
+      const rate = parseFloat(document.getElementById("feeRate").value) || 0;
+      const total = base + (base * (rate / 100));
+      document.getElementById("resultDisplay").textContent = "Total: $" + total.toFixed(2);
+    }
 
-    <!-- Freelance Banking & Payout Suite -->
-    <section class="banking-container">
-      <div class="banking-header">Connected Payout Accounts</div>
-      
-      <div class="account-card">
-        <div class="account-info">
-          <h4>Global Bank Transfer (USD / EUR)</h4>
-          <p>Verified & Ready • Instant Zero-Fee Escrow Routing</p>
-        </div>
-        <span class="badge" style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Active</span>
-      </div>
-
-      <div class="account-card">
-        <div class="account-info">
-          <h4>Multi-Currency Wallet (PKR / Global)</h4>
-          <p>Connected via Secure API Gateway</p>
-        </div>
-        <button class="btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Configure</button>
-      </div>
-    
-    <!-- Automated Payment Reminders Section -->
-    <section class="reminder-container">
-      <div class="reminder-header">Automated Payment Reminders</div>
-      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
-        Draft and send professional payment follow-ups to your clients instantly.
-      </p>
-      <div style="display: grid; gap: 0.75rem;">
-        <input type="text" id="reminder-client" placeholder="Client Name" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
-        <input type="text" id="reminder-amount" placeholder="Invoice Total ($)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
-        <button id="reminder-btn" style="background: var(--color-primary, #2563eb); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 500;">Generate Reminder Draft</button>
-        <textarea id="reminder-output" class="reminder-textarea" placeholder="Reminder email draft will appear here..."></textarea>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 King AI & Freelance Marketplace. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script type="module" src="js/app.js"></script>
+    function togglePayout() {
+      const badge = document.querySelector(".payout-status-badge");
+      if (!badge) return;
+      if (badge.textContent.trim() === "Active") {
+        badge.textContent = "Inactive";
+        badge.style.background = "#6b7280";
+      } else {
+        badge.textContent = "Active";
+        badge.style.background = "#10b981";
+      }
+    }
+  </script>
 </body>
 </html>
-
-    <!-- Freelance Invoice Generator Section -->
-    <section class="invoice-container">
-      <div class="invoice-header">Dynamic Invoice Generator</div>
-      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
-        Create and preview professional client invoices instantly.
-      </p>
-      
-      <div style="display: grid; gap: 0.75rem;">
-        <input type="text" id="invoice-client" placeholder="Client Name (e.g., Acme Corp)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        <input type="text" id="invoice-item" placeholder="Service Description" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        <div style="display: flex; gap: 0.5rem;">
-          <input type="number" id="invoice-price" placeholder="Price ($)" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-          <input type="number" id="invoice-qty" placeholder="Qty" value="1" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        </div>
-        <button id="invoice-btn" class="btn-primary" style="width: 100%;">Generate Invoice</button>
-      </div>
-
-      <div class="invoice-preview" id="invoice-preview-box">
-        // Invoice output will appear here...
-      </div>
-    </section>
- + tot.toFixed(2);
-  " style="width:100%;background:var(--color-primary,#2563eb);color:white;border:none;padding:0.75rem;border-radius:4px;cursor:pointer;font-weight:600;margin:1rem 0;">Calculate Free Total</button>
-
-  
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Freelance Banking & Payout Suite -->
-    <section class="banking-container">
-      <div class="banking-header">Connected Payout Accounts</div>
-      
-      <div class="account-card">
-        <div class="account-info">
-          <h4>Global Bank Transfer (USD / EUR)</h4>
-          <p>Verified & Ready • Instant Zero-Fee Escrow Routing</p>
-        </div>
-        <span class="badge" style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Active</span>
-      </div>
-
-      <div class="account-card">
-        <div class="account-info">
-          <h4>Multi-Currency Wallet (PKR / Global)</h4>
-          <p>Connected via Secure API Gateway</p>
-        </div>
-        <button class="btn-secondary" style="padding: 0.25rem 0.75rem; font-size: 0.875rem;">Configure</button>
-      </div>
-    
-    <!-- Automated Payment Reminders Section -->
-    <section class="reminder-container">
-      <div class="reminder-header">Automated Payment Reminders</div>
-      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
-        Draft and send professional payment follow-ups to your clients instantly.
-      </p>
-      <div style="display: grid; gap: 0.75rem;">
-        <input type="text" id="reminder-client" placeholder="Client Name" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
-        <input type="text" id="reminder-amount" placeholder="Invoice Total ($)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-background); color: var(--color-text);">
-        <button id="reminder-btn" style="background: var(--color-primary, #2563eb); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 500;">Generate Reminder Draft</button>
-        <textarea id="reminder-output" class="reminder-textarea" placeholder="Reminder email draft will appear here..."></textarea>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 King AI & Freelance Marketplace. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script type="module" src="js/app.js"></script>
-</body>
-</html>
-
-    <!-- Freelance Invoice Generator Section -->
-    <section class="invoice-container">
-      <div class="invoice-header">Dynamic Invoice Generator</div>
-      <p style="font-size: 0.875rem; color: var(--color-text-muted, #94a3b8); margin-bottom: var(--space-md);">
-        Create and preview professional client invoices instantly.
-      </p>
-      
-      <div style="display: grid; gap: 0.75rem;">
-        <input type="text" id="invoice-client" placeholder="Client Name (e.g., Acme Corp)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        <input type="text" id="invoice-item" placeholder="Service Description" style="width: 100%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        <div style="display: flex; gap: 0.5rem;">
-          <input type="number" id="invoice-price" placeholder="Price ($)" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-          <input type="number" id="invoice-qty" placeholder="Qty" value="1" style="width: 50%; padding: 0.5rem; border: 1px solid var(--color-border); border-radius: 4px;">
-        </div>
-        <button id="invoice-btn" class="btn-primary" style="width: 100%;">Generate Invoice</button>
-      </div>
-
-      <div class="invoice-preview" id="invoice-preview-box">
-        // Invoice output will appear here...
-      </div>
-    </section>
