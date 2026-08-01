@@ -150,14 +150,24 @@
         document.documentElement.style.setProperty("--color-bg", "#111827");
         document.documentElement.style.setProperty("--color-card", "#1f2937");
         document.documentElement.style.setProperty("--color-text", "#f9fafb");
-        document.documentElement.style.setProperty("--color-text-muted", "#9ca3af");
+        document.documentElement.style.setProperty("--color-text-muted", "#d1d5db");
         document.documentElement.style.setProperty("--color-border", "#374151");
+        document.querySelectorAll("label, p, h3, .card div").forEach(el => {
+          if (!el.style.color || el.style.color === "var(--color-text-muted)" || el.style.color === "rgb(75, 85, 99)") {
+            el.style.color = "#d1d5db";
+          }
+        });
       } else {
         document.documentElement.style.setProperty("--color-bg", "#f9fafb");
         document.documentElement.style.setProperty("--color-card", "#ffffff");
         document.documentElement.style.setProperty("--color-text", "#111827");
         document.documentElement.style.setProperty("--color-text-muted", "#4b5563");
         document.documentElement.style.setProperty("--color-border", "#e5e7eb");
+        document.querySelectorAll("label, p, h3, .card div").forEach(el => {
+          if (el.style.color === "rgb(209, 213, 219)") {
+            el.style.color = "";
+          }
+        });
       }
     }
 
