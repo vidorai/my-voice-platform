@@ -79,6 +79,27 @@
 <body>
 
 <div class="dashboard">
+
+  <!-- Platform Header -->
+  <div class="card" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white;">
+    <h1 style="font-size: 20px; font-weight: 700; margin-bottom: 4px;">King AI & Freelance Suite</h1>
+    <p style="color: #93c5fd; font-size: 13px;">Advanced Multi-Utility Freelance & AI Operations Platform</p>
+  </div>
+
+  <!-- Live Hourly Rate Calculator -->
+  <div class="card">
+    <h2>Hourly Rate Calculator</h2>
+    <p style="margin-bottom: 12px;">Calculate your ideal freelance rate based on target earnings and expenses.</p>
+    <label>Desired Annual Income (USD)</label>
+    <input type="number" id="calc-income" value="60000">
+    <label>Billable Hours Per Week</label>
+    <input type="number" id="calc-hours" value="30">
+    <div style="background: var(--bg-color); padding: 12px; border-radius: 8px; margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-weight: 600;">Recommended Rate:</span>
+      <span style="font-size: 18px; font-weight: 700; color: var(--accent);">$45.00 / hr</span>
+    </div>
+  </div>
+
   <!-- Revenue Overview -->
   <div class="card header-stats">
     <div class="stat-box">
