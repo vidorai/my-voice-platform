@@ -4,77 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>King AI & Freelance Suite</title>
+
 <style>
-  :root {
-    --bg-color: #f8fafc;
-    --card-bg: #ffffff;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --accent: #2563eb;
-    --border: #e2e8f0;
-    --success: #10b981;
-    --warning: #f59e0b;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg-color);
-    color: var(--text-primary);
+    background-color: #f3f4f6;
+    margin: 0;
     padding: 16px;
-    display: flex;
-    justify-content: center;
+    color: #1f2937;
   }
   .dashboard {
-    width: 100%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
   }
   .card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
+    background: #ffffff;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    width: 100%;
   }
-  .header-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 8px;
   }
-  .stat-box h3 { font-size: 14px; color: var(--text-secondary); margin-bottom: 4px; }
-  .stat-box .amount { font-size: 20px; font-weight: 700; color: var(--success); }
-  h2 { font-size: 16px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
-  p, label { font-size: 14px; color: var(--text-secondary); }
-  input, select {
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 4px;
+    margin-top: 10px;
+  }
+  input {
     width: 100%;
     padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
     font-size: 14px;
   }
   button {
-    background: var(--accent);
+    background: #2563eb;
     color: white;
     border: none;
     padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    width: 100%;
-  }
-  .badge {
-    font-size: 11px;
-    padding: 4px 8px;
     border-radius: 6px;
     font-weight: 600;
+    width: 100%;
+    cursor: pointer;
   }
-  .badge.progress { background: #dbeafe; color: #1d4ed8; }
-  .badge.pending { background: #fef3c7; color: #b45309; }
 </style>
+
 </head>
 <body>
 
